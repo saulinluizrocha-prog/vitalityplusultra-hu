@@ -1,0 +1,2390 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+    <script>
+      !(function (e, n, A) {
+        function o(e, n) {
+          return typeof e === n;
+        }
+
+        function t() {
+          var e, n, A, t, a, i, l;
+          for (var f in r)
+            if (r.hasOwnProperty(f)) {
+              if (
+                ((e = []),
+                (n = r[f]),
+                n.name &&
+                  (e.push(n.name.toLowerCase()),
+                  n.options && n.options.aliases && n.options.aliases.length))
+              )
+                for (A = 0; A < n.options.aliases.length; A++)
+                  e.push(n.options.aliases[A].toLowerCase());
+              for (
+                t = o(n.fn, "function") ? n.fn() : n.fn, a = 0;
+                a < e.length;
+                a++
+              )
+                (i = e[a]),
+                  (l = i.split(".")),
+                  1 === l.length
+                    ? (Modernizr[l[0]] = t)
+                    : (!Modernizr[l[0]] ||
+                        Modernizr[l[0]] instanceof Boolean ||
+                        (Modernizr[l[0]] = new Boolean(Modernizr[l[0]])),
+                      (Modernizr[l[0]][l[1]] = t)),
+                  s.push((t ? "" : "no-") + l.join("-"));
+            }
+        }
+
+        function a(e) {
+          var n = u.className,
+            A = Modernizr._config.classPrefix || "";
+          if ((c && (n = n.baseVal), Modernizr._config.enableJSClass)) {
+            var o = new RegExp("(^|\\s)" + A + "no-js(\\s|$)");
+            n = n.replace(o, "$1" + A + "js$2");
+          }
+          Modernizr._config.enableClasses &&
+            ((n += " " + A + e.join(" " + A)),
+            c ? (u.className.baseVal = n) : (u.className = n));
+        }
+
+        function i(e, n) {
+          if ("object" == typeof e) for (var A in e) f(e, A) && i(A, e[A]);
+          else {
+            e = e.toLowerCase();
+            var o = e.split("."),
+              t = Modernizr[o[0]];
+            if ((2 == o.length && (t = t[o[1]]), "undefined" != typeof t))
+              return Modernizr;
+            (n = "function" == typeof n ? n() : n),
+              1 == o.length
+                ? (Modernizr[o[0]] = n)
+                : (!Modernizr[o[0]] ||
+                    Modernizr[o[0]] instanceof Boolean ||
+                    (Modernizr[o[0]] = new Boolean(Modernizr[o[0]])),
+                  (Modernizr[o[0]][o[1]] = n)),
+              a([(n && 0 != n ? "" : "no-") + o.join("-")]),
+              Modernizr._trigger(e, n);
+          }
+          return Modernizr;
+        }
+
+        var s = [],
+          r = [],
+          l = {
+            _version: "3.6.0",
+            _config: {
+              classPrefix: "",
+              enableClasses: !0,
+              enableJSClass: !0,
+              usePrefixes: !0,
+            },
+            _q: [],
+            on: function (e, n) {
+              var A = this;
+              setTimeout(function () {
+                n(A[e]);
+              }, 0);
+            },
+            addTest: function (e, n, A) {
+              r.push({
+                name: e,
+                fn: n,
+                options: A,
+              });
+            },
+            addAsyncTest: function (e) {
+              r.push({
+                name: null,
+                fn: e,
+              });
+            },
+          },
+          Modernizr = function () {};
+        (Modernizr.prototype = l), (Modernizr = new Modernizr());
+        var f,
+          u = n.documentElement,
+          c = "svg" === u.nodeName.toLowerCase();
+        !(function () {
+          var e = {}.hasOwnProperty;
+          f =
+            o(e, "undefined") || o(e.call, "undefined")
+              ? function (e, n) {
+                  return n in e && o(e.constructor.prototype[n], "undefined");
+                }
+              : function (n, A) {
+                  return e.call(n, A);
+                };
+        })(),
+          (l._l = {}),
+          (l.on = function (e, n) {
+            this._l[e] || (this._l[e] = []),
+              this._l[e].push(n),
+              Modernizr.hasOwnProperty(e) &&
+                setTimeout(function () {
+                  Modernizr._trigger(e, Modernizr[e]);
+                }, 0);
+          }),
+          (l._trigger = function (e, n) {
+            if (this._l[e]) {
+              var A = this._l[e];
+              setTimeout(function () {
+                var e, o;
+                for (e = 0; e < A.length; e++) (o = A[e])(n);
+              }, 0),
+                delete this._l[e];
+            }
+          }),
+          Modernizr._q.push(function () {
+            l.addTest = i;
+          }),
+          Modernizr.addAsyncTest(function () {
+            function e(e, n, A) {
+              function o(n) {
+                var o = n && "load" === n.type ? 1 == t.width : !1,
+                  a = "webp" === e;
+                i(e, a && o ? new Boolean(o) : o), A && A(n);
+              }
+
+              var t = new Image();
+              (t.onerror = o), (t.onload = o), (t.src = n);
+            }
+
+            var n = [
+                {
+                  uri: "data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=",
+                  name: "webp",
+                },
+                {
+                  uri: "data:image/webp;base64,UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAABBxAR/Q9ERP8DAABWUDggGAAAADABAJ0BKgEAAQADADQlpAADcAD++/1QAA==",
+                  name: "webp.alpha",
+                },
+                {
+                  uri: "data:image/webp;base64,UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA",
+                  name: "webp.animation",
+                },
+                {
+                  uri: "data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=",
+                  name: "webp.lossless",
+                },
+              ],
+              A = n.shift();
+            e(A.name, A.uri, function (A) {
+              if (A && "load" === A.type)
+                for (var o = 0; o < n.length; o++) e(n[o].name, n[o].uri);
+            });
+          }),
+          t(),
+          a(s),
+          delete l.addTest,
+          delete l.addAsyncTest;
+        for (var p = 0; p < Modernizr._q.length; p++) Modernizr._q[p]();
+        e.Modernizr = Modernizr;
+      })(window, document);
+    </script>
+    <title>
+       Vitality Plus Ultra vásárlása kedvező áron. Árak, Hozzászólások. Vásárolja meg az Vitality Plus Ultra már most!
+    </title>
+     <!-- INTH_SNIPPET_TOP -->
+  
+
+  </head>
+
+  <body class="ev-date">
+    <div class="block1 block">
+      <div class="container">
+        <div class="block1__header">
+          <div class="header__content header__content__left">
+            <div class="header__text header__text-like">
+              Megalázó eljárások <br>
+              nélküli hatás
+            </div>
+            <div class="header__text header__text-people">
+              Már 28573<br>
+              férfinek segített
+            </div>
+                        <div class="header__text header__text-doctor">
+              A szakértők <br>
+              javasolják
+            </div>
+          </div>
+          <!-- <div class="header__content header__content__right">
+
+          </div> -->
+        </div>
+        <div class="block1__footer">
+          <div class="block1__footer__text">
+            <h1 class="footer__title title">
+              A prosztata egészsége bármely életkorban helyreállítható
+            </h1>
+
+            <ul class="footer__list text">
+              
+              <li class="list__item">
+                Segít megszüntetni a prosztatagyulladás minden tünetét
+              </li>
+
+              <li class="list__item">
+                Elősegíti a vizeletürítés <br>
+                normalizálását
+              </li>
+              <li class="list__item">Segít növelni a potenciát</li>
+                            <li class="list__item">Segít megelőzni a prosztatagyulladás kiújulását</li>
+            </ul>
+          </div>
+          <div class="block1__footer__product">
+            <picture>
+              <source type="image/webp" media="(max-width: 380px)" "assets/images/product.webp">
+              <source media="(max-width: 380px)" "assets/images/product.png">
+              <source type="image/webp" "assets/images/product.webp">
+              <img loading="lazy" class="product__img" src="assets/images/product.webp" alt="family">
+            </picture>
+          </div>
+          <div class="block1__footer__form">
+            <form  method="post" class="   orderForm  form x_order_form">
+              <div class="stock">
+                <p class="center tahoma px22 lh120 bold black">
+                  FIGYELEM! AKCIÓ!
+                </p>
+                <p class="stock__top">CSAK EGY NAPIG</p>
+                <p class="stock__bottom stock__bottom date-0 date" data-format="dd monthFull"></p>
+              </div>
+              <div class="form__price">
+                <div class="price__old">
+                  <p class="price__text price__old__text">Új ár</p>
+                  <p class="price__old__num">
+                    <span class="price__old__money x_price_previous"> 23800  </span>
+                    <span class="price__old__currency x_currency"> HUF </span>
+                  </p>
+                </div>
+                <div class="price__new">
+                  <p class="price__text price__new__text">Régi ár</p>
+                  <p class="price__new__num">
+                    <span class="price__new__money x_price_current">11900   </span>
+                    <span class="price__new__currency x_currency"> HUF </span><span class="new-star"></span>
+                  </p>
+                </div>
+              </div>
+              <div class="form__bg">
+                <div class="form__name">
+                  <input type="text" name="name" class="form__name__field" placeholder="Az Ön neve"  required>
+                </div>
+                <div class="form__tel">
+                  <input type="tel" name="phone" class="form__tel__field" placeholder="Az Ön telefonszáma"  onkeyup="this.value=this.value.replace(/\s/,'')" minlength="5"  required>
+                </div>
+                <input type="submit" class="form__btn btn" value="Megrendelés">
+
+                <p class="form__pack">
+                  A fenmaradó készlet: <span class="lastpack">50</span> csomag
+                </p>
+              </div>
+            </form>
+
+            <div class="footer__form__security">
+              Az Ön személyes adatai védve vannak!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="block2 block">
+      <div class="container flex">
+        <div class="block2__attention">
+          <h2 class="attention__title text__bold title">
+            A prosztatagyulladással élő ember nap mint nap szembesül ezekkel a dolgokkal
+          </h2>
+        </div>
+        <div class="block2__attribute">
+          <div class="attribute__left">
+            <div class="attribute__text">
+              <div class="attribute__left__img">
+                <img loading="lazy" src="assets/images/block2__img.png" alt="organ" class="left__img">
+              </div>
+              <div class="left__content">
+                <p class="content__text content__text1">
+                  égő és éles fájdalom vizeletürítés során
+                </p>
+                <p class="content__text content__text2">
+                  hiányos ürítés érzése
+                </p>
+                <p class="content__text content__text3">
+                  fájdalmas vizeletürítési ingerek
+                </p>
+                <p class="content__text content__text4">
+                  több mint 1 vizeletürítés éjszakánként
+                </p>
+                <p class="content__text content__text5">
+                  vizeletürítés után vizeletcsepp kiválasztása
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="attribute__right">
+            <h2 class="attribute__right__title attribute__title">Valamint:</h2>
+            <ul class="attribute__right__list border__bg">
+              <li class="list__item">fájdalom a húgycsőben és hasi fájdalom</li>
+              <li class="list__item">nemi vágy hiánya</li>
+              <li class="list__item">fájdalmas közösülés</li>
+              <li class="list__item">korai magömlés</li>
+              <li class="list__item">39-40℃ láz</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="block3 block">
+      <div class="container flex">
+        <div class="first__window">
+          <h2 class="block3__title title">
+            Végezzen el egy egyszerű gyors tesztet, hogy meghatározza prosztatája állapotát és a prosztatagyulladás kialakulásának kockázatát
+          </h2>
+          <div class="tabs tabs-top">
+            <ul class="tabs__list">
+              <li class="list__item active">1</li>
+              <li class="list__item">2</li>
+              <li class="list__item">3</li>
+              <li class="list__item">4</li>
+              <li class="list__item">5</li>
+              <li class="list__item">6</li>
+              <li class="list__item">7</li>
+              <li class="list__item">8</li>
+              <li class="list__item">9</li>
+            </ul>
+            <div class="tab__block">
+              <div class="tabs__question tabs__question-1 tabs__question-active">
+                <div class="question__block">
+                  <h2 class="question__title">
+                    Tapasztalt-e Ön az elmúlt héten fájdalmat vagy kellemetlen
+                    érzést a következő helyeken?
+                  </h2>
+                  <div class="question__text">
+                    <div class="text__block">
+                      <h2 class="text__title">
+                        A végbél és a herék (perineum) közötti terület
+                      </h2>
+                      <div class="text__block-inner">
+                        <input id="q1-1y" type="radio" class="question__result" required value="1" name="q1-1">
+                        <label for="q1-1y" class="question__answer q1-1y">
+                          Igen
+                        </label>
+                        <input id="q1-1n" type="radio" class="question__result" required value="0" name="q1-1">
+                        <label for="q1-1n" class="question__answer q1-1n">
+                          Nem
+                        </label>
+                      </div>
+                    </div>
+                    <div class="text__block">
+                      <h2 class="text__title">A herék</h2>
+                      <div class="text__block-inner">
+                        <input id="q1-2y" type="radio" class="question__result" required value="1" name="q1-2">
+                        <label for="q1-2y" class="question__answer q1-2y">
+                          Igen
+                        </label>
+                        <input id="q1-2n" type="radio" class="question__result" required value="0" name="q1-2">
+                        <label for="q1-2n" class="question__answer q1-2n">
+                          Nem
+                        </label>
+                      </div>
+                    </div>
+                    <div class="text__block">
+                      <h2 class="text__title">
+                        A péniszfej, a vizeletürítéshez nem kapcsolódó
+                      </h2>
+                      <div class="text__block-inner">
+                        <input id="q1-3y" type="radio" class="question__result" required value="1" name="q1-3">
+                        <label for="q1-3y" class="question__answer q1-3y">
+                          Igen
+                        </label>
+                        <input id="q1-3n" type="radio" class="question__result" required value="0" name="q1-3">
+                        <label for="q1-3n" class="question__answer q1-3n">
+                          Nem
+                        </label>
+                      </div>
+                    </div>
+                    <div class="text__block">
+                      <h2 class="text__title">
+                        A derék alatt, a szemérem, a húgyhólyag, az ágyék
+                        területén
+                      </h2>
+                      <div class="text__block-inner">
+                        <input id="q1-4y" type="radio" class="question__result" required value="1" name="q1-4">
+                        <label for="q1-4y" class="question__answer q1-4y">
+                          Igen
+                        </label>
+                        <input id="q1-4n" type="radio" class="question__result" required value="0" name="q1-4">
+                        <label for="q1-4n" class="question__answer q1-4n">
+                          Nem
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="question__btn btn question__next">
+                  Következő kérdés
+                </div>
+              </div>
+              <div class="tabs__question tabs__question-2">
+                <div class="question__block">
+                  <h2 class="question__title">
+                    Tapasztalt-e Ön az elmúlt héten:
+                  </h2>
+                  <div class="question__text">
+                    <div class="text__block">
+                      <h2 class="text__title">
+                        Fájdalmat vagy égető érzést vizeletürítés során?
+                      </h2>
+                      <div class="text__block-inner">
+                        <input id="q2-1y" type="radio" class="question__result" required value="1" name="q2-1">
+                        <label for="q2-1y" class="question__answer q2-1y">
+                          Igen
+                        </label>
+                        <input id="q2-1n" type="radio" class="question__result" required value="0" name="q2-1">
+                        <label for="q2-1n" class="question__answer q2-1n">
+                          Nem
+                        </label>
+                      </div>
+                    </div>
+                    <div class="text__block">
+                      <h2 class="text__title">
+                        Fájdalmat vagy kellemetlen érzést a magömlés (orgazmus)
+                        alatt vagy után?
+                      </h2>
+                      <div class="text__block-inner">
+                        <input id="q2-2y" type="radio" class="question__result" required value="1" name="q2-2">
+                        <label for="q2-2y" class="question__answer q2-2y">
+                          Igen
+                        </label>
+                        <input id="q2-2n" type="radio" class="question__result" required value="0" name="q2-2">
+                        <label for="q2-2n" class="question__answer q2-2n">
+                          Nem
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="question__btn btn question__next">
+                  Következő kérdés
+                </div>
+              </div>
+              <div class="tabs__question tabs__question-3">
+                <div class="question__block">
+                  <h2 class="question__title">
+                    Milyen gyakran érez kellemetlen tüneteket az 1 sz. kérdésben
+                    említett területeken?
+                  </h2>
+                  <div class="question__text">
+                    <div class="text__block">
+                      <input id="q3-1" type="radio" class="question__result" required value="0" name="q3">
+                      <label for="q3-1" class="question__answer q3-1">
+                        Soha
+                      </label>
+                      <input id="q3-2" type="radio" class="question__result" required value="1" name="q3">
+                      <label for="q3-2" class="question__answer q3-2">
+                        Ritkán
+                      </label>
+                      <input id="q3-3" type="radio" class="question__result" required value="2" name="q3">
+                      <label for="q3-3" class="question__answer q3-3">
+                        Néha
+                      </label>
+                      <input id="q3-4" type="radio" class="question__result" required value="3" name="q3">
+                      <label for="q3-4" class="question__answer q3-4">
+                        Gyakran
+                      </label>
+                      <input id="q3-5" type="radio" class="question__result" required value="4" name="q3">
+                      <label for="q3-5" class="question__answer q3-5">
+                        Rendszerint
+                      </label>
+                      <input id="q3-6" type="radio" class="question__result" required value="5" name="q3">
+                      <label for="q3-6" class="question__answer q3-6">
+                        Mindig
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="question__btn btn question__next">
+                  Következő kérdés
+                </div>
+              </div>
+              <div class="tabs__question tabs__question-4">
+                <div class="question__block">
+                  <h2 class="question__title">
+                    Melyik szám felel meg az Ön által elmúlt héten tapasztalt
+                    fájdalom intenzitásának?
+                  </h2>
+                  <div class="question__text text__block">
+                    <div class="all__quest">
+                      <div class="text__block-1">
+                        <input id="q4-0" type="radio" name="q4" required value="0" class="question__result">
+                        <label for="q4-0" class="question__answer q4-0">
+                          0 - Nincs fájdalom
+                        </label>
+                        <input id="q4-1" type="radio" name="q4" required value="1" class="question__result">
+                        <label for="q4-1" class="question__answer q4-1">
+                          1
+                        </label>
+                        <input id="q4-2" type="radio" name="q4" required value="2" class="question__result">
+                        <label for="q4-2" class="question__answer q4-2">
+                          2
+                        </label>
+                        <input id="q4-3" type="radio" name="q4" required value="3" class="question__result">
+                        <label for="q4-3" class="question__answer q4-3">
+                          3
+                        </label>
+                        <input id="q4-4" type="radio" name="q4" required value="4" class="question__result">
+                        <label for="q4-4" class="question__answer q4-4">
+                          4
+                        </label>
+                        <input id="q4-5" type="radio" name="q4" required value="5" class="question__result">
+                        <label for="q4-5" class="question__answer q4-5">
+                          5
+                        </label>
+                      </div>
+                      <div class="text__block-1">
+                        <input id="q4-6" type="radio" name="q4" required value="6" class="question__result">
+                        <label for="q4-6" class="question__answer q4-6">
+                          6
+                        </label>
+                        <input id="q4-7" type="radio" name="q4" required value="7" class="question__result">
+                        <label for="q4-7" class="question__answer q4-7">
+                          7
+                        </label>
+                        <input id="q4-8" type="radio" name="q4" required value="8" class="question__result">
+                        <label for="q4-8" class="question__answer q4-8">
+                          8
+                        </label>
+                        <input id="q4-9" type="radio" name="q4" required value="9" class="question__result">
+                        <label for="q4-9" class="question__answer q4-9">
+                          9
+                        </label>
+                        <input id="q4-10" type="radio" name="q4" value="10" class="question__result">
+                        <label for="q4-10" class="question__answer q4-10">
+                          10 - Súlyos fájdalom
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="question__btn btn question__next">
+                  Következő kérdés
+                </div>
+              </div>
+              <div class="tabs__question tabs__question-5">
+                <div class="question__block">
+                  <h2 class="question__title">
+                    Az elmúlt héten milyen gyakran tapasztalta a húgyhólyag
+                    teljes kiürülésének hiányát vizeletürítés után?
+                  </h2>
+                  <div class="question__text">
+                    <div class="text__block">
+                      <input id="q5-1" type="radio" class="question__result" required value="0" name="q5">
+                      <label for="q5-1" class="question__answer q5-1">
+                        Soha
+                      </label>
+                      <input id="q5-2" type="radio" class="question__result" required value="1" name="q5">
+                      <label for="q5-2" class="question__answer q5-2">
+                        Kevesebb mint 1 esetben az 5-ből
+                      </label>
+                      <input id="q5-3" type="radio" class="question__result" required value="2" name="q5">
+                      <label for="q5-3" class="question__answer q5-3">
+                        Kevesebb mint az esetek felében
+                      </label>
+                      <input id="q5-4" type="radio" class="question__result" required value="3" name="q5">
+                      <label for="q5-4" class="question__answer q5-4">
+                        Körülbelül az esetek felében
+                      </label>
+                      <input id="q5-5" type="radio" class="question__result" required value="4" name="q5">
+                      <label for="q5-5" class="question__answer q5-5">
+                        Az esetek több mint felében
+                      </label>
+                      <input id="q5-6" type="radio" class="question__result" required value="5" name="q5">
+                      <label for="q5-6" class="question__answer q5-6">
+                        Majdnem mindig
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="question__btn btn question__next">
+                  Következő kérdés
+                </div>
+              </div>
+              <div class="tabs__question tabs__question-6">
+                <div class="question__block">
+                  <h2 class="question__title">
+                    Ez elmúlt hét során milyen gyakran vizelt 2 óránál sűrűbb
+                    gyakorisággal?
+                  </h2>
+                  <div class="question__text">
+                    <div class="text__block">
+                      <input id="q6-1" type="radio" class="question__result" required value="0" name="q6">
+                      <label for="q6-1" class="question__answer q6-1">
+                        Soha
+                      </label>
+                      <input id="q6-2" type="radio" class="question__result" required value="1" name="q6">
+                      <label for="q6-2" class="question__answer q6-2">
+                        Kevesebb mint 1 esetben az 5-ből
+                      </label>
+                      <input id="q6-3" type="radio" class="question__result" required value="2" name="q6">
+                      <label for="q6-3" class="question__answer q6-3">
+                        Kevesebb mint az esetek felében
+                      </label>
+                      <input id="q6-4" type="radio" class="question__result" required value="3" name="q6">
+                      <label for="q6-4" class="question__answer q6-4">
+                        Körülbelül az esetek felében
+                      </label>
+                      <input id="q6-5" type="radio" class="question__result" required value="4" name="q6">
+                      <label for="q6-5" class="question__answer q6-5">
+                        Az esetek több mint felében
+                      </label>
+                      <input id="q6-6" type="radio" class="question__result" required value="5" name="q6">
+                      <label for="q6-6" class="question__answer q6-6">
+                        Majdnem mindig
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="question__btn btn question__next">
+                  Következő kérdés
+                </div>
+              </div>
+              <div class="tabs__question tabs__question-7">
+                <div class="question__block">
+                  <h2 class="question__title">
+                    Az elmúlt hét során milyen gyakran akadályozták meg a
+                    tünetei abban, hogy azt csinálja, amit általában szokott
+                    <br>
+                    (munka, szabadidő, stb.)?
+                  </h2>
+                  <div class="question__text">
+                    <div class="text__block">
+                      <input id="q7-1" type="radio" class="question__result nosum" required value="0" name="q7">
+                      <label for="q7-1" class="question__answer q7-1">
+                        Soha
+                      </label>
+                      <input id="q7-2" type="radio" class="question__result nosum" required value="1" name="q7">
+                      <label for="q7-2" class="question__answer q7-2">
+                        Jelentéktelen mértékben
+                      </label>
+                      <input id="q7-3" type="radio" class="question__result nosum" required value="2" name="q7">
+                      <label for="q7-3" class="question__answer q7-3">
+                        Mérsékelten vagy bizonyos mértékben
+                      </label>
+                      <input id="q7-4" type="radio" class="question__result nosum" required value="3" name="q7">
+                      <label for="q7-4" class="question__answer q7-4">
+                        Jelentős mértékben
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="question__btn btn question__next">
+                  Következő kérdés
+                </div>
+              </div>
+              <div class="tabs__question tabs__question-8">
+                <div class="question__block">
+                  <h2 class="question__title">
+                    Az elmúlt hét során milyen gyakran gondolt Ön saját
+                    tüneteire?
+                  </h2>
+                  <div class="question__text">
+                    <div class="text__block">
+                      <input id="q8-1" type="radio" class="question__result nosum" required value="0" name="q8">
+                      <label for="q8-1" class="question__answer q8-1">
+                        Soha
+                      </label>
+                      <input id="q8-2" type="radio" class="question__result nosum" required value="1" name="q8">
+                      <label for="q8-2" class="question__answer q8-2">
+                        Jelentéktelenül
+                      </label>
+                      <input id="q8-3" type="radio" class="question__result nosum" required value="2" name="q8">
+                      <label for="q8-3" class="question__answer q8-3">
+                        Mérsékelten vagy bizonyos mértékben
+                      </label>
+                      <input id="q8-4" type="radio" class="question__result nosum" required value="3" name="q8">
+                      <label for="q8-4" class="question__answer q8-4">
+                        Nagyon jelentősen
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="question__btn btn question__next">
+                  Következő kérdés
+                </div>
+              </div>
+              <div class="tabs__question tabs__question-9">
+                <div class="question__block">
+                  <h2 class="question__title">
+                    Hogyan érezné magát, ha hátralévő életét az elmúlt héten
+                    tapasztalt tünetekkel kéne leélnie?
+                  </h2>
+                  <div class="question__text">
+                    <div class="text__block">
+                      <input id="q9-1" type="radio" class="question__result nosum" required value="0" name="q9">
+                      <label for="q9-1" class="question__answer q9-1">
+                        Kiválóan
+                      </label>
+                      <input id="q9-2" type="radio" class="question__result nosum" required value="1" name="q9">
+                      <label for="q9-2" class="question__answer q9-2">
+                        Elégedetten
+                      </label>
+                      <input id="q9-3" type="radio" class="question__result nosum" required value="2" name="q9">
+                      <label for="q9-3" class="question__answer q9-3">
+                        Többnyire elégedetten
+                      </label>
+                      <input id="q9-4" type="radio" class="question__result nosum" required value="3" name="q9">
+                      <label for="q9-4" class="question__answer q9-4">
+                        Nem egyértelmű (félig elégedetten, félig nem)
+                      </label>
+                      <input id="q9-5" type="radio" class="question__result nosum" required value="4" name="q9">
+                      <label for="q9-5" class="question__answer q9-5">
+                        Többnyire elégedetlennek
+                      </label>
+                      <input id="q9-6" type="radio" class="question__result nosum" required value="5" name="q9">
+                      <label for="q9-6" class="question__answer q9-6">
+                        Szerencsétlennek
+                      </label>
+                      <input id="q9-7" type="radio" class="question__result nosum" required value="6" name="q9">
+                      <label for="q9-7" class="question__answer q9-7">
+                        Rettenetesen
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="question__btn btn question__result-btn">
+                  Eredmények kiértékelése
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="second__window">
+          <h2 class="second__title title">
+            Mi történik, ha nem figyelünk oda egészségünkre
+          </h2>
+          <div class="second__table">
+            <div class="table__head">
+              <div class="head__column head__column1">
+                Az urogenitális rendszer betegségeinek következményei
+              </div>
+              <div class="head__column head__column2">Halálozás</div>
+              <div class="head__column head__column3">Rokkantság</div>
+              <div class="head__column head__column4">Impotencia</div>
+              <div class="head__column head__column5">Nehéz műtet</div>
+            </div>
+            <div class="table__row table__row1">
+              <div class="table__column table__column1">
+                <picture>
+                  <source class="table__img1" media="(max-width:479px)" type="image/webp" "assets/images/block3__second-window1-big.webp">
+                  <source type="image/webp" class="table__img1" "assets/images/block3__second-window1-big.webp">
+                  <img loading="lazy" class="table__img1" src="assets/images/block3__second-window1-big.png" alt="img">
+                </picture>
+                <picture>
+                  <source class="table__img2" media="(max-width:479px)" type="image/webp" "assets/images/block3__second-window1-big.webp">
+                  <source type="image/webp" class="table__img2" "assets/images/block3__second-window1-big.webp">
+                  <img loading="lazy" class="table__img2" src="assets/images/block3__second-window1-big.png" alt="img">
+                </picture>
+                húgyhólyag obstrukció
+              </div>
+              <div class="table__column table__column2">
+                <span class="text__show">Halálozás</span>
+                15%
+              </div>
+              <div class="table__column table__column3">
+                <span class="text__show">Rokkantság</span>
+                5%
+              </div>
+              <div class="table__column table__column4">
+                <span class="text__show">Impotencia</span>
+                50%
+              </div>
+              <div class="table__column table__column5">
+                <span class="text__show">Nehéz műtet</span>
+                30%
+              </div>
+            </div>
+            <div class="table__row table__row2">
+              <div class="table__column table__column1">
+                <picture>
+                  <source class="table__img1" media="(max-width:479px)" type="image/webp" "assets/images/block3__second-window2-big.webp">
+                  <source type="image/webp" class="table__img1" "assets/images/block3__second-window2-big.webp">
+                  <img loading="lazy" class="table__img1" src="assets/images/block3__second-window2-big.png" alt="img">
+                </picture>
+                <picture>
+                  <source class="table__img2" media="(max-width:479px)" type="image/webp" "assets/images/block3__second-window2-big.webp">
+                  <source type="image/webp" class="table__img2" "assets/images/block3__second-window2-big.webp">
+                  <img loading="lazy" class="table__img2" src="assets/images/block3__second-window2-big.png" alt="img">
+                </picture>
+                ismétlődő cystitis
+              </div>
+              <div class="table__column table__column2">
+                <span class="text__show">Halálozás</span>
+                10%
+              </div>
+              <div class="table__column table__column3">
+                <span class="text__show">Rokkantság</span>
+                5%
+              </div>
+              <div class="table__column table__column4">
+                <span class="text__show">Impotencia</span>
+                75%
+              </div>
+              <div class="table__column table__column5">
+                <span class="text__show">Nehéz műtet</span>
+                10%
+              </div>
+            </div>
+            <div class="table__row table__row3">
+              <div class="table__column table__column1">
+                <picture>
+                  <source class="table__img1" media="(max-width:479px)" type="image/webp" "assets/images/block3__second-window3-big.webp">
+                  <source type="image/webp" class="table__img1" "assets/images/block3__second-window3-big.webp">
+                  <img loading="lazy" class="table__img1" src="assets/images/block3__second-window3-big.png" alt="img">
+                </picture>
+                <picture>
+                  <source class="table__img2" media="(max-width:479px)" type="image/webp" "assets/images/block3__second-window3-big.webp">
+                  <source type="image/webp" class="table__img2" "assets/images/block3__second-window3-big.webp">
+                  <img loading="lazy" class="table__img2" src="assets/images/block3__second-window3-big.png" alt="img">
+                </picture>
+                húgycső szűkülés
+              </div>
+              <div class="table__column table__column2">
+                <span class="text__show">Halálozás</span>
+                10%
+              </div>
+              <div class="table__column table__column3">
+                <span class="text__show">Rokkantság</span>
+                5%
+              </div>
+              <div class="table__column table__column4">
+                <span class="text__show">Impotencia</span>
+                5%
+              </div>
+              <div class="table__column table__column5">
+                <span class="text__show">Nehéz műtet</span>
+                80%
+              </div>
+            </div>
+            <div class="table__row table__row4">
+              <div class="table__column table__column1">
+                <picture>
+                  <source class="table__img1" media="(max-width:479px)" type="image/webp" "assets/images/block3__second-window4-big.webp">
+                  <source type="image/webp" class="table__img1" "assets/images/block3__second-window4-big.webp">
+                  <img loading="lazy" class="table__img1" src="assets/images/block3__second-window4-big.png" alt="img">
+                </picture>
+                <picture>
+                  <source class="table__img2" media="(max-width:479px)" type="image/webp" "assets/images/block3__second-window4-big.webp">
+                  <source type="image/webp" class="table__img2" "assets/images/block3__second-window4-big.webp">
+                  <img loading="lazy" class="table__img2" src="assets/images/block3__second-window4-big.png" alt="img">
+                </picture>
+                prosztata tályog
+              </div>
+              <div class="table__column table__column2">
+                <span class="text__show">Halálozás</span>
+                10%
+              </div>
+              <div class="table__column table__column3">
+                <span class="text__show">Rokkantság</span>
+                10%
+              </div>
+              <div class="table__column table__column4">
+                <span class="text__show">Impotencia</span>
+                50%
+              </div>
+              <div class="table__column table__column5">
+                <span class="text__show">Nehéz műtet</span>
+                30%
+              </div>
+            </div>
+            <div class="table__row table__row5">
+              <div class="table__column table__column1">
+                <picture>
+                  <source class="table__img1" media="(max-width:479px)" type="image/webp" "assets/images/block3__second-window5-big.webp">
+                  <source type="image/webp" class="table__img1" "assets/images/block3__second-window5-big.webp">
+                  <img loading="lazy" class="table__img1" src="assets/images/block3__second-window5-big.png" alt="img">
+                </picture>
+                <picture>
+                  <source class="table__img2" media="(max-width:479px)" type="image/webp" "assets/images/block3__second-window5-big.webp">
+                  <source type="image/webp" class="table__img2" "assets/images/block3__second-window5-big.webp">
+                  <img loading="lazy" class="table__img2" src="assets/images/block3__second-window5-big.png" alt="img">
+                </picture>
+                pyelonephritis
+              </div>
+              <div class="table__column table__column2">
+                <span class="text__show">Halálozás</span>
+                80%
+              </div>
+              <div class="table__column table__column3">
+                <span class="text__show">Rokkantság</span>
+                15%
+              </div>
+              <div class="table__column table__column4">
+                <span class="text__show">Impotencia</span>
+                3%
+              </div>
+              <div class="table__column table__column5">
+                <span class="text__show">Nehéz műtet</span>
+                2%
+              </div>
+            </div>
+            <div class="table__row table__row6">
+              <div class="table__column table__column1">
+                <picture>
+                  <source class="table__img1" media="(max-width:479px)" type="image/webp" "assets/images/block3__second-window6-big.webp">
+                  <source type="image/webp" class="table__img1" "assets/images/block3__second-window6-big.webp">
+                  <img loading="lazy" class="table__img1" src="assets/images/block3__second-window6-big.png" alt="img">
+                </picture>
+                <picture>
+                  <source class="table__img2" media="(max-width:479px)" type="image/webp" "assets/images/block3__second-window6-big.webp">
+                  <source type="image/webp" class="table__img2" "assets/images/block3__second-window6-big.webp">
+                  <img loading="lazy" class="table__img2" src="assets/images/block3__second-window6-big.png" alt="img">
+                </picture>
+                szepszis
+              </div>
+              <div class="table__column table__column2">
+                <span class="text__show">Halálozás</span>
+                55%
+              </div>
+              <div class="table__column table__column3">
+                <span class="text__show">Rokkantság</span>
+                30%
+              </div>
+              <div class="table__column table__column4">
+                <span class="text__show">Impotencia</span>
+                5%
+              </div>
+              <div class="table__column table__column5">
+                <span class="text__show">Nehéz műtet</span>
+                10%
+              </div>
+            </div>
+          </div>
+          <h3 class="second__footer-text">Van-e kiút?</h3>
+        </div>
+      </div>
+    </div>
+    <div class="block4 block">
+      <div class="container flex">
+        <div class="block4__header">
+          <div class="header__left">
+            <h2 class="header__left__title title">Erős férfiegészség</h2>
+            <div class="header__left__product product">
+              <picture>
+                <source class="product__img img" media="(max-width:479px)" type="image/webp" "assets/images/product.webp">
+                <source type="image/webp" class="product__img img" "assets/images/product.webp">
+                <img loading="lazy" class="product__img img" src="assets/images/product.png" alt="family">
+              </picture>
+            </div>
+          </div>
+          <div class="header__right">
+            <div class="header__right__wrap">
+              <div class="header__right__text">
+                <p class="right__text right__text1">Gyulladásos folyamatok</p>
+                <p class="right__text right__text2">
+                  <span style="display: inline-block">Vitality Plus Ultra</span> nélkül
+                </p>
+                <p class="right__text right__text3">
+                  <span style="display: inline-block">Vitality Plus Ultra</span> segítségével
+                </p>
+              </div>
+              <div class="header__right__img">
+                <img loading="lazy" src="assets/images/grafik.png" alt="grafic" class="right__img">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block4__content">
+          <div class="content__item content__item1 border__bg">
+            <h2 class="item__title subtitle">Kényelmes és nyugodt élet</h2>
+            <p class="item__text text">
+              A férfi nem aggódik a gyulladások miatt, <br>
+              minden nappal erősödik az egészsége, <br>
+              biztos benne, hogy erős immunitásának <br>
+              köszönhetően semmilyen fertőzéstől <br>
+              nem kell félnie.
+            </p>
+          </div>
+          <div class="content__item content__item2 border__bg">
+            <h2 class="item__title subtitle">Normális vizeletürítés</h2>
+            <p class="item__text text">
+              A vizeletürítés állandó kontroll <br>
+              alatt áll és nem jelent problémát. <br>
+              A férfi nyugodtan indul <br>
+              hosszú sétákra és utazásokra, <br>
+              nem aggódva a vizeletürítési <br>
+              ingerek miatt.
+            </p>
+          </div>
+          <div class="content__item content__item3 border__bg">
+            <h2 class="item__title subtitle">Erős libidó</h2>
+            <p class="item__text text">
+              Percek alatt izgalomba jön, az erekció <br>
+              maximális és hosszú ideig tart. <br>
+              Aktivizálódik a tesztoszteron termelése.
+            </p>
+          </div>
+        </div>
+        <div class="block4__btn btn ever-popup-btn">Megrendelés</div>
+      </div>
+    </div>
+    <div class="block5 block">
+      <div class="container flex">
+        <h2 class="block5__title title">
+          Hogyan érzi magát a férfi prosztataproblémák nélkül
+        </h2>
+
+        <div class="block5__content">
+          <ul class="content__list">
+            <li class="list__item">Nincs gyulladás és a fájdalom</li>
+            <li class="list__item">A prosztata normál állapotú</li>
+            <li class="list__item">
+              A baktériumok nem fenyegetik <br>
+              a szervezetet
+            </li>
+            <li class="list__item">Nincs stagnálás a kismedencében</li>
+            <li class="list__item">Egészséges és erős erek</li>
+          </ul>
+          <div class="content__img product">
+            <picture>
+              <source class="img__product img" media="(max-width:479px)" type="image/webp" "assets/images/product.webp">
+              <source type="image/webp" class="img__product img" "assets/images/product.webp">
+              <img loading="lazy" class="img__product img" src="assets/images/product.png" alt="family">
+            </picture>
+          </div>
+          <ul class="content__list">
+            <li class="list__item">Nincs kellemetlen érzés<br> az ágyékban</li>
+            <li class="list__item">Aktív véráramlás a medencei szervekbe</li>
+            <li class="list__item">
+              Az urogenitális rendszer <br>
+              nyálkahártyája egészséges
+            </li>
+            <li class="list__item">Magas libidó és erős erekció</li>
+            <li class="list__item">
+              A szervezet immunitásának <br>
+              növekedése
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="block6 block">
+      <div class="container flex">
+        <h2 class="block6__title title">
+          Hogyan segít visszaállítani a
+          <span class="logo__text" style="display: inline">Vitality Plus Ultra</span> a
+          prosztata egészségét
+        </h2>
+        <div class="block6__content">
+          <div class="content__left">
+            <picture>
+              <source type="image/webp" class="left__img" "assets/images/expert.webp">
+              <img class="left__img" src="assets/images/expert1.png" alt="img">
+            </picture>
+          </div>
+          <div class="content__right">
+            <div class="content__title">
+Michael Berger, egy német magánközpont szakértője az urológia területén
+            </div>
+            <div class="content__block">
+              <div class="content mCustomScrollbar">
+                <p class="block__text block__text-1">
+                  A férfiegészség különleges figyelmet igényel és jobb nem
+                  elhanyagolni, mivel a következmények a legkomolyabbak
+                  lehetnek.
+                </p>
+                <p class="block__text block__text-2">
+                  Ezért javaslom minden férfinak 35 éves kor felett a
+                  táplálkozásra való szigorú odafigyelést, helyes életmód
+                  folytatását, javaslom a mérsékelt alkoholfogyasztást, a
+                  dohányzásról való leszokást és a rendszeres sportot.
+                </p>
+
+                <p class="block__text block__text-3">
+                  <img loading="lazy" src="assets/images/block6__organism.png" alt="img" class="text__img">
+                  <span class="text__decor">A terméket német szakemberek ajánlják. Ez a szer segít a
+                    férfiegészség helyreállításában.</span>
+                </p>
+
+                <p class="block__text block__text-4">
+                  A prosztatagyulladásban szenvedő férfiak számára nagyon
+                  fontos, hogy aktiválják a medencei szervek véráramát, ami
+                  elősegíti a potencia javítását, a libidó fokozását és az
+                  erekciós problémáktól való megszabadulást.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="block7 block">
+      <div class="container flex">
+        <h2 class="block7__title title">
+          Független szakértői vélemény a
+          <span class="logo__text" style="display: inline">Vitality Plus Ultra</span>
+          termékről
+        </h2>
+        <div class="block7__slider">
+          <div class="block7__slider1">
+            <div class="slider1__slide">
+              <div class="slide__inner">
+                <div class="slide__img slide__img-1">
+                  <div class="slide__bg"></div>
+
+                  <picture>
+                    <source type="image/webp" "assets/images/expert2-l.webp">
+                    <img class="expert" src="assets/images/expert2-l.png" alt="img">
+                  </picture>
+                </div>
+                <div class="slide__text">
+                  <h2 class="slide__title slide__title-1">Herman Stein</h2>
+                  <h3 class="slide__subtitle slide__subtitle-1">
+                    szakértő az urológia területén
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="slider1__slide">
+              <div class="slide__inner">
+                <div class="slide__img slide__img-2">
+                  <div class="slide__bg"></div>
+
+                  <picture>
+                    <source type="image/webp" "assets/images/expert1-l.webp">
+                    <img class="expert" src="assets/images/expert1-l.png" alt="img">
+                  </picture>
+                </div>
+                <div class="slide__text">
+                  <h2 class="slide__title slide__title-2">Hector Muller</h2>
+                  <h3 class="slide__subtitle slide__subtitle-2">
+                    szakértő az urológia területén, 13 éves tapasztalat
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="slider1__slide">
+              <div class="slide__inner">
+                <div class="slide__img slide__img-3">
+                  <div class="slide__bg"></div>
+                    <source type="image/webp" "assets/images/expert3-l.webp">
+                    <img class="expert" src="assets/images/expert3-l.png" alt="img">
+                  
+                </div>
+                <div class="slide__text">
+                  <h2 class="slide__title slide__title-3">Michael Bruner</h2>
+                  <h3 class="slide__subtitle slide__subtitle-3">
+Egy német magánközpont szakértője az urológia területén
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="slider1__slide">
+              <div class="slide__inner">
+                <div class="slide__img slide__img-4">
+                  <div class="slide__bg"></div>
+                  <img src="assets/images/expert4-l.png" alt="expert" class="expert">
+                </div>
+                <div class="slide__text">
+                  <h2 class="slide__title slide__title-4">Hans Pfeiffer</h2>
+                                    <h3 class="slide__subtitle slide__subtitle-3">
+                    Urológiai szakterület szakértője
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="block7__slider2">
+            <p class="slider2__text">
+              A német szakemberek ajánlják a
+              <span style="display: inline-block">Vitality Plus Ultra</span> szert nemcsak,
+              mint segítséget a férfiegészség támogatásában, de a libidó
+              fokozására is, az erekció megerősítésére, valamint számos probléma
+              kialakulásának megelőzésére...
+            </p>
+            <p class="slider2__text">
+              Az erős immunitás megakadályozza a kórokozó baktériumok okozta
+              gyulladásos folyamatokat. Az immunitás fokozása érdekében a
+              szakértők a
+              <span style="display: inline-block">Vitality Plus Ultra</span> alkalmazását
+              javasolják, amely elősegíti az urogenitális rendszer védő
+              funkcióinak megerősítését és segít ellenállni a fertőzéseknek.
+            </p>
+            <p class="slider2__text">
+              A <span style="display: inline-block">Vitality Plus Ultra</span> segít a libidó
+              fokozásában, ami azt jelenti, hogy a férfi hamar izgalomba fog
+              jönni, erekciója pedig hosszú ideig fog tartani. Ezen kívül a szer elősegíti a vizeletürítés normalizálását, az ágyéktáji kellemetlen érzés többé nem zavarja. Német szakértők szerint ez egy komplex
+              hatású szer.
+            </p>
+            <p class="slider2__text">
+A növényi alap és az összetétel kiegyensúlyozottsága miatt az Vitality Plus Ultra kiváló választás a megelőzésre, a védekező funkciók erősítésére és az általános életerő fenntartására.
+            </p>
+          </div>
+        </div>
+        <div class="block7__btn btn ever-popup-btn">Megrendelés</div>
+      </div>
+    </div>
+    <div class="block8 block">
+      <div class="container flex">
+        <h2 class="block8__title title">
+          A <span class="logo__text" style="display: inline">Vitality Plus Ultra</span>
+          természetes összetételének köszönhetően hatékony
+        </h2>
+        <div class="block8__content">
+          <div class="content__block content__block__left">
+            <div class="block__left__product product">
+              <picture>
+                <source class="product__img img" media="(max-width:479px)" type="image/webp" "assets/images/product.webp">
+                <source type="image/webp" class="product__img img" "assets/images/product.webp">
+                <img loading="lazy" class="product__img img" src="assets/images/product.png" alt="family">
+              </picture>
+            </div>
+            <div class="tabs">
+              <ul class="content__block__list">
+                <li class="list__item list__item1 active">
+                  <span class="list__item-el"></span>E-vitamin
+                </li>
+                <li class="list__item list__item2">
+                  <span class="list__item-el"></span>Gyömbér
+                </li>
+                <li class="list__item list__item3">
+                  <span class="list__item-el"></span>Hibiszkusz
+                </li>
+                <li class="list__item list__item4">
+                  <span class="list__item-el"></span>Cink
+                </li>
+              </ul>
+              <div class="slider__tabs is-ready">
+                <div class="content__block content__block__right content__block__right1 block__right-active">
+                  <div class="inner__wrapper">
+                    <div class="block__right__img">
+                      <picture>
+                        <source class="right__img" media="(max-width:479px)" type="image/webp" "assets/images/block8__sostav3.webp">
+                        <source type="image/webp" class="right__img" "assets/images/block8__sostav3.webp">
+                        <img loading="lazy" class="right__img" src="assets/images/block8__sostav3.png" alt="img">
+                      </picture>
+                    </div>
+                    <h3 class="block__right__title">E-vitamin</h3>
+                    <p class="block__right__text">
+Erős antioxidáns, csökkenti a pangásos folyamatokat a szövetekben, segít javítani a mikrokeringést a prosztata területén, ami által csökken a krónikus kellemetlenség a prosztatagyulladásban szenvedőknél.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="content__block content__block__right content__block__right1">
+                  <div class="inner__wrapper">
+                    <div class="block__right__img">
+                      <picture>
+                        <source type="image/webp" class="right__img" "assets/images/block8__sostav1.webp">
+                        <img loading="lazy" class="right__img" src="assets/images/block8__sostav1.png" alt="img">
+                      </picture>
+                    </div>
+                    <h3 class="block__right__title">Gyömbér</h3>
+                    <p class="block__right__text">
+A gyömbér hozzájárul a gyulladás és a görcsök csökkentéséhez, javítja a kismedencei véráramlást, ami megkönnyíti a vizelést és csökkenti a prosztata duzzanatát.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="content__block content__block__right content__block__right1">
+                  <div class="inner__wrapper">
+                    <div class="block__right__img">
+                      <picture>
+                        <source type="image/webp" class="right__img" "assets/images/block8__sostav4.webp">
+                        <img loading="lazy" class="right__img" src="assets/images/block8__sostav4.png" alt="img">
+                      </picture>
+                    </div>
+                    <h3 class="block__right__title">Hibiszkusz</h3>
+                    <p class="block__right__text">
+Gyulladáscsökkentő és antioxidáns tulajdonságokkal rendelkezik, ami segít mérsékelni a prosztataszövet gyulladását és csökkenti a kellemetlenséget. 
+Enyhe vízhajtó hatásának köszönhetően elősegíti a felesleges folyadék és méreganyagok eltávolítását.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="content__block content__block__right content__block__right1">
+                  <div class="inner__wrapper">
+                    <div class="block__right__img">
+                      <picture>
+                        <source type="image/webp" class="right__img" "assets/images/block8__sostav2.webp">
+                        <img loading="lazy" class="right__img" src="assets/images/block8__sostav2.png" alt="img">
+                      </picture>
+                    </div>
+                    <h3 class="block__right__title">Cink</h3>
+                    <p class="block__right__text">
+                      Támogatja a férfi hormonok, köztük a tesztoszteron normál szintjét, ami fontos a prosztata működése és a nemi funkció szempontjából. 
+					  Segít megelőzni a prosztataszövet túlburjánzását és erősíti az immunrendszert, ami csökkenti a húgyúti bakteriális fertőzések kockázatát, amelyek prosztatagyulladást okozhatnak.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block10 block">
+      <div class="container flex">
+        <h2 class="block10__title title">
+          A <span class="logo__text" style="display: inline">Vitality Plus Ultra</span>
+          vásárlóinak körében végzett felmérés kimutatta a szer magas
+          hatékonyságát
+        </h2>
+        <h3 class="block10__subtitle subtitle">
+          kettős-vak, randomizált, placebo-kontrollos vizsgálat adatai, egy 2678
+          férfiból álló, <br>
+          18 - 80 éves korosztályú csoportban:
+        </h3>
+        <div class="block10__table">
+          <table class="table">
+            <thead class="thead">
+              <tr class="thead__tr">
+                <td class="thead__td thead__td-1">
+                  <p>A hatás jellege</p>
+                </td>
+                <td class="thead__td thead__td-2">
+                  <p>% javulás</p>
+                </td>
+                <td class="thead__td thead__td-3">
+                  <p>Eredmények</p>
+                </td>
+              </tr>
+            </thead>
+            <tbody class="tbody">
+              <tr class="tbody__tr tbody__tr-1">
+                <td class="tbody__td tbody__td-1">
+                  <p>
+                    A prosztata állapotának normalizálása (prosztataelváladék-elemzés és ultrahangvizsgálat adatai alapján)
+                    
+                  </p>
+                </td>
+                <td class="tbody__td tbody__td-2">
+                  <div class="progress">
+                    <span class="progress__bar progress82">82%</span>
+                  </div>
+                </td>
+                <td class="tbody__td tbody__td-3">
+                  <img loading="lazy" src="assets/images/table__check.png" alt="check">
+                </td>
+              </tr>
+              <tr class="tbody__tr tbody__tr-2">
+                <td class="tbody__td tbody__td-1">
+                  <p>
+                    Erekció növelése, a nemi közösülés időtartamának
+                    meghosszabbítása
+                    <span class="browm__text no-wrap">
+                      (független felmérés alapján)
+                    </span>
+                  </p>
+                </td>
+                <td class="tbody__td tbody__td-2">
+                  <div class="progress">
+                    <span class="progress__bar progress79">79%</span>
+                  </div>
+                </td>
+                <td class="tbody__td tbody__td-3">
+                  <img loading="lazy" src="assets/images/table__check.png" alt="check">
+                </td>
+              </tr>
+              <tr class="tbody__tr tbody__tr-3">
+                <td class="tbody__td tbody__td-1">
+                  <p>
+                    Az erektilis diszfunkció megszüntetése (a panaszok számának csökkenése)
+                    
+                  </p>
+                </td>
+                <td class="tbody__td tbody__td-2">
+                  <div class="progress">
+                    <span class="progress__bar progress86">86%</span>
+                  </div>
+                </td>
+                <td class="tbody__td tbody__td-3">
+                  <img loading="lazy" src="assets/images/table__check.png" alt="check">
+                </td>
+              </tr>
+              <tr class="tbody__tr tbody__tr-4">
+                <td class="tbody__td tbody__td-1">
+                  <p>
+                    A vizelés és a magömlés során tapasztalt fájdalom és a
+                    kellemetlen érzés megszüntetése
+                    <span class="browm__text">
+                      (a panaszok száma csökkent)
+                    </span>
+                  </p>
+                </td>
+                <td class="tbody__td tbody__td-2">
+                  <div class="progress">
+                    <span class="progress__bar progress78">78%</span>
+                  </div>
+                </td>
+                <td class="tbody__td tbody__td-3">
+                  <img loading="lazy" src="assets/images/table__check.png" alt="check">
+                </td>
+              </tr>
+              <tr class="tbody__tr tbody__tr-5">
+                <td class="tbody__td tbody__td-1">
+                  <p>
+                    Az állapot általános javulása, az immunvédelem megerősítése
+                    <span class="browm__text">
+                      (általános vérvizsgálat és az immunogram adatai)
+                    </span>
+                  </p>
+                </td>
+                <td class="tbody__td tbody__td-2">
+                  <div class="progress">
+                    <span class="progress__bar progress87">87%</span>
+                  </div>
+                </td>
+                <td class="tbody__td tbody__td-3">
+                  <img loading="lazy" src="assets/images/table__check.png" alt="check">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="note">
+            *Statisztikánk telefonos felmérés adatai alapján készült
+          </p>
+        </div>
+        <div class="block10__btn btn ever-popup-btn">Megrendelés</div>
+      </div>
+    </div>
+    <div class="block11 block">
+      <div class="container flex">
+        <h2 class="block11__title title">
+          Olyan emberek véleménye, akik szedték a
+          <span style="display: inline-block">Vitality Plus Ultra</span> terméket
+        </h2>
+        <div class="block11__reviews">
+          <div class="review__slide">
+            <div class="block11__review">
+              <div class="review__img">
+                <picture>
+                  <source media="(max-width:479px)" type="image/webp" "assets/images/block11__img4.webp">
+                  <source type="image/webp" "assets/images/block11__img4.webp">
+                  <img loading="lazy" src="assets/images/block11__img4.png" alt="img">
+                </picture>
+              </div>
+              <h2 class="review__title">
+                <span class="text__bold">Balázs</span> 45 éves <br>
+                <span class="city">Budapest</span>
+              </h2>
+              <p class="review__text review__text1">
+                A potenciazavarok nálam a közelmúltban jelentkeztek, 45 éves
+                vagyok és szeretnék még normálisan élni. Keresztül mentem két
+                <span style="display: inline-block">Vitality Plus Ultra</span> kúrán, az
+                eredmény nagyon jó. Jólétemet 8-ra értékelem a 10-ből. Remélem,
+                hogy sikerül teljesen helyreállítani férfierőmet. És az életem
+                visszakerül a szokásos kerékvágásba. Csak azt sajnálom, hogy
+                korábban nem hallottam erről a készítményről.
+              </p>
+              <span class="review__open"></span>
+            </div>
+          </div>
+
+          <div class="review__slide">
+            <div class="block11__review">
+              <div class="review__img">
+                <picture>
+                  <source media="(max-width:479px)" type="image/webp" "assets/images/block11__img2.webp">
+                  <source type="image/webp" "assets/images/block11__img2.webp">
+                  <img loading="lazy" src="assets/images/block11__img2.png" alt="img">
+                </picture>
+              </div>
+              <h2 class="review__title">
+                <span class="text__bold">Zoltán</span> 23 éves <br>
+                <span class="city">Veszprém</span>
+              </h2>
+              <p class="review__text review__text2">
+                A krónikus prosztatagyulladás a katonai szolgálatom után
+                jelentkezett. Az elmúlt hat hónap során fájdalmat éreztem olyan
+                színten, hogy szó sem lehetett szexről. A
+                <span style="display: inline-block">Vitality Plus Ultra</span>-t hozta nekem.
+                Egy hónap elteltével rám se lehet ismerni. Egészséges vagyok
+                akárcsak egy bika. Nem érzek fájdalmat, normálisan járok WC-re.
+                A szex is sokkal jobb most.
+              </p>
+              <span class="review__open"></span>
+            </div>
+          </div>
+
+          <div class="review__slide">
+            <div class="block11__review">
+              <div class="review__img">
+                <picture>
+                  <source media="(max-width:479px)" type="image/webp" "assets/images/block11__img3.webp">
+                  <source type="image/webp" "assets/images/block11__img3.webp">
+                  <img loading="lazy" src="assets/images/block11__img3.png" alt="img">
+                </picture>
+              </div>
+              <h2 class="review__title">
+                <span class="text__bold">Lajos</span> 53 éves <br>
+                <span class="city">Székesfehérvár</span>
+              </h2>
+              <p class="review__text review__text3">
+                Srácok, ez egy bomba jó szer!!! Úgy döntöttem, hogy be fogom
+                szedni megelőzés céljából. Végül - mintha visszatértem volna a
+                fiatalkoromba. Visszatért az erőm, energiám, jó hangulatom és
+                férfierőm. Megjött az életkedvem. És mindez az egészséges
+                prosztata miatt!! Mindeddig 53 éves koromra már vénembernek
+                éreztem magam. Ajánlom mindenkinek, aki még nem próbálta! A
+                legfontosabb az, hogy a termék teljesen természetes és nincs
+                mellékhatása!
+              </p>
+              <span class="review__open"></span>
+            </div>
+          </div>
+
+          <div class="review__slide">
+            <div class="block11__review">
+              <div class="review__img">
+                <picture>
+                  <source media="(max-width:479px)" type="image/webp" "assets/images/block11__img1.webp">
+                  <source type="image/webp" "assets/images/block11__img1.webp">
+                  <img loading="lazy" src="assets/images/block11__img1.png" alt="img">
+                </picture>
+              </div>
+              <h2 class="review__title">
+                <span class="text__bold">András</span> 36 éves <br>
+                <span class="city">Fehérgyarmat</span>
+              </h2>
+              <p class="review__text review__text4">
+                Körülbelül tíz évvel ezelőtt krónikus prosztatagyulladásom volt.
+                Már meg is szoktam. És ekkor úgy döntöttünk a feleségemmel, hogy
+                gyermeket vállalunk. A vizsgálati eredmények azt mutatták, hogy
+                gyakorlatilag meddő vagyok, nagyon rossz minőségű a spermám.
+                Kiderült, hogy a meddőség prosztatagyulladásból alakulhat ki.
+                Tehát úgy döntöttem, hogy gyors és azonnali megoldást kerek.
+                Elfogadtam a népszerű tanácsok alkalmazását. Sőt, még a műtétre
+                is készen álltam. Ám nem lett rá szükség, és ennek nagyon
+                örülök. Megismételtem az összes szükséges vizsgálatot. Egy
+                specialista a
+                <span style="display: inline-block">Vitality Plus Ultra</span> kapszulákat
+                ajánlotta. Mindössze két kúrán estem túl. Most egészséges
+                embernek érzem magam. A vizsgálati eredmények szerint a
+                prosztatagyulladásom eltűnt. Végre jól érzem magam. Ráadásul a
+                feleségem is terhes. Mindez a
+                <span style="display: inline-block">Vitality Plus Ultra</span> terméknek
+                köszönhetően!
+              </p>
+              <span class="review__open"></span>
+            </div>
+          </div>
+        </div>
+        <h3 class="block11__subtitle subtitle iphone">
+          Szedte Ön valaha a
+          <span style="display: inline-block">Vitality Plus Ultra</span> készítményt?
+          Segítsen másoknak megbizonyosodni annak hatékonyságáról!
+        </h3>
+        <div class="block11__btn btn btn-open">Visszajelzés</div>
+      </div>
+    </div>
+    <div class="block12 block">
+      <div class="container flex">
+        <h2 class="block12__title title">
+          Hogyan szedjük a
+          <span class="logo__text" style="display: inline">Vitality Plus Ultra</span> szert
+          annak érdekében <br>
+          hogy elérjük a maximális eredményt
+        </h2>
+        <div class="block12__content">
+          <div class="content__block content__block-left">
+            <div class="content__img product">
+              <picture>
+                <source class="img__product img" media="(max-width:479px)" type="image/webp" "assets/images/product.webp">
+                <source type="image/webp" class="img__product img" "assets/images/product.webp">
+                <img loading="lazy" class="img__product img" src="assets/images/product.png" alt="family">
+              </picture>
+            </div>
+          </div>
+          <div class="content__block content__block-right">
+            <ul class="content__list">
+              <li class="list__item list__item-1">
+                Felnőtteknek (férfiaknak) naponta 1-2 <br>
+                (reggel és este), 1 kapszula, az étkezéstől függetlenül, igyon
+                rá elegendő mennyiségű vízet.
+              </li>
+              <li class="list__item list__item-2">
+                A kúra ajánlott időtartama - 45 nap.
+              </li>
+              <li class="list__item list__item-3">
+                2-3 hónap után a kúrát meg lehet ismételni.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <h3 class="block12__subtitle subtitle">
+          Használat előtt olvassa el a használati utasítást
+        </h3>
+        <div class="block12__btn btn ever-popup-btn">Kapjon konzultációt</div>
+      </div>
+    </div>
+    <div class="block13 block">
+      <div class="container flex">
+        <h2 class="block13__title title">
+          Hogyan rendelhető meg a
+          <span class="logo__text" style="display: inline">Vitality Plus Ultra</span>
+        </h2>
+        <div class="block13__content">
+          <div class="content__item content__item1">
+            <div class="item__img">
+              <img loading="lazy" src="assets/images/block13__img1.png" class="item__image" alt="image">
+            </div>
+            <p class="item__img__text">
+              Adja meg nevét és telefonszámát <br class="br-13">
+              <br>
+              az adatlapon
+            </p>
+            <p class="item__text item__text-1">Bizalmas</p>
+          </div>
+          <div class="content__item content__item2">
+            <div class="item__img">
+              <picture>
+                <source class="item__image" media="(max-width:479px)" type="image/webp" "assets/images/block13__img2.webp">
+                <source type="image/webp" class="item__image" "assets/images/block13__img2.webp">
+                <img loading="lazy" class="item__image" src="assets/images/block13__img2.png" alt="img">
+              </picture>
+            </div>
+            <p class="item__img__text">
+              Munkatársaink hamarosan <br>
+              visszahívják <br class="br-13">
+              Önt a részletekkel kapcsolatban
+            </p>
+            <p class="item__text item__text-2">Anonim</p>
+          </div>
+          <div class="content__item content__item3">
+            <div class="item__img">
+              <picture>
+                <source class="item__image" media="(max-width:479px)" type="image/webp" "assets/images/block13__img3.webp">
+                <source type="image/webp" class="item__image" "assets/images/block13__img3.webp">
+                <img loading="lazy" class="item__image" src="assets/images/block13__img3.png" alt="img">
+              </picture>
+            </div>
+            <p class="item__img__text">
+              A csomagot postán <br>
+              vagy futáron <br class="br-13">
+              keresztül kapja meg
+            </p>
+            <p class="item__text item__text-3">Biztonság</p>
+          </div>
+          <div class="content__item content__item4">
+            <div class="item__img">
+              <picture>
+                <source class="item__image" media="(max-width:479px)" type="image/webp" "assets/images/block13__img4.webp">
+                <source type="image/webp" class="item__image" "assets/images/block13__img4.webp">
+                <img loading="lazy" class="item__image" src="assets/images/block13__img4.png" alt="img">
+              </picture>
+            </div>
+            <p class="item__img__text">
+              Törődjön <br>
+              egészségével <br class="br-13">
+              <br>
+              most rögtön
+            </p>
+            <p class="item__text item__text-4">Hatékonyság</p>
+          </div>
+        </div>
+        <div class="block13__btn btn ever-popup-btn">Megrendelés</div>
+      </div>
+    </div>
+    <div class="block14 block">
+      <div class="container flex">
+        <h2 class="block14__title title">A prosztatagyulladás globális probléma</h2>
+        <h3 class="block14__subtitle subtitle">
+          A prosztatagyulladás a 50 év alatti férfiak 50%-át, míg a 60 év feletti férfiak több mint 75%-át érinti.
+        </h3>
+        <span class="stats__decor"></span>
+        <div class="block14__stats">
+          <div class="stats__num">
+            <span class="num num-1">1</span>
+            <span class="num num-7">7</span>
+          </div>
+          <span class="num__text">férfi</span>
+        </div>
+        <p class="block14__text">Tényleg el akarja hanyagolni egészségét?</p>
+      </div>
+    </div>
+
+    <div class="block1 block1__pt block">
+      <div class="container">
+        <div class="block1__footer">
+          <div class="block1__footer__text">
+            <ul class="footer__list">
+              <li class="list__item">Segít megszüntetni a prosztatagyulladás minden tünetét</li>
+              <li class="list__item">
+                Elősegíti a libidó és a szexuális <br>
+                aktivitás növelését
+              </li>
+              <li class="list__item">Segít megelőzni a prosztatagyulladás kiújulását</li>
+              <li class="list__item">
+                Elősegíti a vizeletürítés normalizálását
+              </li>
+            </ul>
+          </div>
+          <div class="block1__footer__product">
+            <picture>
+              <source class="product__img" media="(max-width:479px)" type="image/webp" "assets/images/product.webp">
+              <source type="image/webp" class="product__img" "assets/images/product.webp">
+              <img loading="lazy" class="product__img" src="assets/images/product.png" alt="family">
+            </picture>
+          </div>
+          <div class="block1__footer__form">
+            <form  method="post" class="   orderForm  form x_order_form">
+              <div class="stock">
+                <p class="center tahoma px22 lh120 bold black">
+                  FIGYELEM! AKCIÓ!
+                </p>
+                <p class="stock__top">CSAK EGY NAPIG</p>
+                <p class="stock__bottom stock__bottom date-0 date" data-format="dd monthFull"></p>
+              </div>
+              <div class="form__price">
+                <div class="price__old">
+                  <p class="price__text price__old__text">Új ár</p>
+                  <p class="price__old__num">
+                    <span class="price__old__money x_price_previous"> 23800  </span>
+                    <span class="price__old__currency x_currency"> HUF </span>
+                  </p>
+                </div>
+                <div class="price__new">
+                  <p class="price__text price__new__text">Régi ár</p>
+                  <p class="price__new__num">
+                    <span class="price__new__money x_price_current">11900   </span>
+                    <span class="price__new__currency x_currency"> HUF </span><span class="new-star"></span>
+                  </p>
+                </div>
+              </div>
+              <div class="form__bg">
+                <div class="form__name">
+                  <input type="text" name="name" class="form__name__field" placeholder="Az Ön neve"  required>
+                </div>
+                <div class="form__tel">
+                  <input type="tel" name="phone" class="form__tel__field" placeholder="Az Ön telefonszáma"  onkeyup="this.value=this.value.replace(/\s/,'')" minlength="5"  required>
+                </div>
+                <input type="submit" class="form__btn btn" value="Megrendelés">
+                <p class="form__pack">
+                  A fenmaradó készlet: <span class="lastpack">50</span> csomag
+                </p>
+              </div>
+            </form>
+
+            <div class="footer__form__security">
+              Az Ön személyes adatai védve vannak!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup-container popup-container-1">
+      <div class="reviews__r-popup r-popup js-pop_up active" id="popup">
+        <div class="r-popup__close js-close"></div>
+        <h2 class="r-popup__title title">Írja meg a véleményét</h2>
+        <form class="r-popup__form r-form  orderForm   js-reviews-form">
+          <div class="r-form__inputs">
+            <div class="r-form__wrap-input r-form__wrap-input--name reviews-form__field-wrap">
+              <input class="r-form__input reviews-input-text" type="text" name="name" placeholder="Az Ön neve" required  minlength="2">
+            </div>
+
+            <div class="r-form__wrap-input r-form__wrap-input--years">
+              <input class="r-form__input js-input-age" type="text" name="age" placeholder="Éves vagyok" required maxlength="2">
+            </div>
+
+            <div class="r-form__wrap-input r-form__wrap-input--place">
+              <input class="r-form__input input--place" type="text" name="city" placeholder="Vidék" required>
+            </div>
+            <label class="r-form__wrap-input r-form__wrap-input--photo">
+              <input class="visually-hidden default-input__input default-input__input--photo js-input-file" type="file" name="photo" accept="image/*">
+              <span class="r-form__image js-photo"></span>
+              <span class="dis_bl">
+                <span class="r-form__text dis_bl">Fénykép csatolása</span>
+                <span class="r-form__load js-load dis_bl" data-text="Fénykép feltöltve"></span>
+              </span>
+            </label>
+            <div class="r-form__wrap-input r-form__wrap-input--textarea">
+              <textarea class="r-form__input reviews-form__textarea" name="review" placeholder="Írja meg a véleményét" required="required" rows="12"></textarea>
+            </div>
+          </div>
+          <button class="btn r-form__btn" type="submit">Küld</button>
+        </form>
+      </div>
+      <div class="review__wrap popup-block-second popup__test popup__test-1">
+        <span class="popup__close popup-close"></span>
+        <h2 class="popup__title">
+          Köszönjük! <br>
+          Visszajelzését moderálásra küldtük.
+        </h2>
+      </div>
+    </div>
+
+    <div class="popup__test popup__test-1">
+      <div class="popup__layer"></div>
+      <div class="popup__iner">
+        <span class="popup__close popup-close"></span>
+        <div class="popup__content">
+          <h2 class="content__title">Az Ön eredménye:</h2>
+          <h3 class="content__subtitle">Enyhe tünetek</h3>
+          <p class="content__text">
+            Jelenleg az impotenciát okozó betegségek tünetei enyhék vagy nem
+            tapasztalhatók egyáltalán. Ez jó eredmény, amely azonban félrevezető
+            lehet. Ne feledje, hogy ezek a betegségek gyakran tünetmentesen vagy
+            enyhe formában folynak!
+          </p>
+          <p class="content__text">
+            Ha elmúlt 22, javasoljuk, hogy megelőzés céljából essen túl egy
+            <span style="display: inline">Vitality Plus Ultra</span> kúrán.
+          </p>
+          <div class="popup__btn btn popup-btn ever-popup-btn">
+            <span style="display: inline">Vitality Plus Ultra</span> megrendelése
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup__test popup__test-2">
+      <div class="popup__layer"></div>
+      <div class="popup__iner">
+        <span class="popup__close popup-close"></span>
+        <div class="popup__content">
+          <h2 class="content__title">Az Ön eredménye:</h2>
+          <h3 class="content__subtitle">Közepesen súlyos tünetek</h3>
+          <p class="content__text">
+            Az urogenitális rendszer betegségei közepesen súlyos
+            kellemetlenségeket okoznak Önnek. Legyen óvatos. A hipotermia, a
+            stressz vagy az immunitás jelentéktelen csökkenése állapotának
+            hirtelen és jelentős romlását idézheti elő!
+          </p>
+          <p class="content__text">
+            Használhatja az
+            <span style="display: inline-block">Vitality Plus Ultra</span> szert, amely segít
+            elnyomni a fent felsorolt tüneteket
+          </p>
+          <div class="popup__btn btn popup-btn ever-popup-btn">Megrendelés</div>
+        </div>
+      </div>
+    </div>
+    <div class="popup__test popup__test-3">
+      <div class="popup__layer"></div>
+      <div class="popup__iner">
+        <span class="popup__close popup-close"></span>
+        <div class="popup__content">
+          <h2 class="content__title">Az Ön eredménye:</h2>
+          <h3 class="content__subtitle">Súlyos tünetek</h3>
+          <p class="content__text">
+            A urogenitális rendszer betegségei jelentősen befolyásolják életének
+            minőségét. Ebben a szakaszban súlyos szövődmények léphetnek fel,
+            amelyek figyelmen kívül hagyása műtétekhez és fogyatékossághoz
+            vezethet.
+          </p>
+          <p class="content__text">
+            Azt javasoljuk, hogy azonnal kezdje el az Vitality Plus Ultraet. A halogatás végzetes következményekkel járhat!
+          </p>
+          <div class="popup__btn btn popup-btn ever-popup-btn">
+            <span style="display: inline-block">Vitality Plus Ultra</span> megrendelése
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ever-popup-build">
+      <div class="my-popup popup" id="cloneThis">
+        <div class="inner__wrap">
+          <div class="popup__container">
+            <div class="popup__left">
+              <div class="left__product">
+                <h2 class="popup__title title">Vitality Plus Ultra megrendelése</h2>
+                <picture>
+                  <source class="left__product__img" media="(max-width:479px)" type="image/webp" "assets/images/product.webp">
+                  <source type="image/webp" class="left__product__img" "assets/images/product.webp">
+                  <img loading="lazy" class="left__product__img" src="assets/images/product.png" alt="family">
+                </picture>
+              </div>
+            </div>
+            <div class="popup__right">
+              <form action="subscribe1.php" method="post" class="   orderForm  form x_order_form">
+                <div class="stock">
+                  <p class="center tahoma px22 lh120 bold black">
+                    FIGYELEM! AKCIÓ!
+                  </p>
+                  <p class="stock__top">CSAK EGY NAPIG</p>
+                  <p class="stock__bottom stock__bottom date-0 date" data-format="dd monthFull">
+                    28 január
+                  </p>
+                </div>
+                <div class="form__price">
+                  <div class="price__old">
+                    <p class="price__text price__old__text">Új ár</p>
+                    <p class="price__old__num">
+                      <span class="price__old__money x_price_previous"> 23800  </span>
+                      <span class="price__old__currency x_currency"> HUF </span>
+                    </p>
+                  </div>
+                  <div class="price__new">
+                    <p class="price__text price__new__text">Régi ár</p>
+                    <p class="price__new__num">
+                      <span class="price__new__money x_price_current">11900   </span>
+                      <span class="price__new__currency x_currency"> HUF </span><span class="new-star"></span>
+                    </p>
+                  </div>
+                </div>
+                <div class="form__bg">
+                  <div class="info"></div>
+
+                  <div class="form__name">
+                    <input type="text" name="name" class="form__name__field" placeholder="Az Ön neve"  required>
+                  </div>
+                  <div class="form__tel">
+                    <input type="tel" name="phone" class="form__tel__field" placeholder="Az Ön telefonszáma"  onkeyup="this.value=this.value.replace(/\s/,'')" minlength="5"  required>
+                  </div>
+                  <input type="submit" class="form__btn btn" value="Megrendelés">
+                  <p class="form__pack">
+                    A fenmaradó készlet: <span class="lastpack">50</span> csomag
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        *Gyógyszernek nem minősülő termék 
+        <br>
+        *A készítmény hatása az egyéni
+        tényezőktől függ 
+        <br>
+        *Használat előtt kérjük, figyelmesen olvassa el a
+        tájékoztatót
+      </div>
+    </footer>
+    
+    
+	
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/index.js"></script>
+
+<script>var cookies = (function(a) {
+	if (a == "") return {};
+	var b = {};
+	for (var i = 0; i < a.length; ++i) {
+		var p=a[i].split('=');
+		if (p.length != 2) continue;
+		b[p[0]] = p[1];
+	}
+
+	return b;
+})(document.cookie.split('; '));
+
+//для клонирования блока в попап используются следующие айдишники
+// #cloneThis - для десктопа
+// #cloneMobileThis - для мобильного (если нужно)
+//брейкпоинт для переключения попапа при необходимости дефолт значение = 1000
+
+// в случае, если мы не клонируем форму, а верстаем попап произвольно,
+// то делать это необходимо в контейнере с классом .ever-popup-build
+// false (показывать контейнер) / true (не показывать контейнер)
+
+var popupBuild = true; // false/true
+
+
+//.ever-popup-btn - класс для для открытия попапа
+
+//проверка кода
+//.check__field - класс для поля проверки кода
+//.check__btn - класс для кнопки провеки кода
+//.check__result - класс для контейнера с результатом проверки кода
+
+//таймер
+//для вывода счетчика таймера используется 3 контенера (часы, минуты, секунды)
+//.hours класс для вывода часов
+//.minutes класс для вывода минут
+//.seconds класс для вывода секунд
+
+function initiate(cookies) {
+
+	var breakpoint = 1000;
+	var desktop = document.querySelector('#cloneThis');
+	var mobile = document.querySelector('#cloneMobileThis');
+
+	if (popupBuild) {
+		// в случае, если мы верстаем попап в контейнере .ever-popup-build, даное условие прячет его, если значение переменной popupBuild = true
+		var style = document.createElement('style');
+		style.innerHTML = '.ever-popup-build{position: fixed; opacity: 0;z-index: -1; top: 0; left: -9999px;}';
+		document.querySelector('head').appendChild(style)
+	}
+
+	function addPopupStyle() {
+		// добавляем стили для нашего поапа
+		var cont = document.createElement('style'),
+			head = document.querySelector('head');
+		cont.innerHTML = '.ever-popup__body.ever-mobile{display:none}.ever-popup{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,.7);z-index: 111;display: none;overflow: auto;}.ever-popup__body{position: static;float: none;display: block;margin: 0 auto;width:auto}.ever-popup.show{display: block;align-items: center;}.ever-popup__inner{position: relative;margin: 0 auto;padding-top:35px}.ever-popup__close{width: 35px;height: 30px;position: absolute;cursor:pointer;top: 0;right: 0;z-index: 1;-webkit-transition: .3s; -moz-transition: .3s; -ms-transition: .3s; -o-transition: .3s; transition: .3s;}.ever-popup__close:after, .ever-popup__close:before {content: "";position: absolute;right: 0;top: 10px;width: 35px;height: 10px;background: #fff;transition: all 1s;}.ever-popup__close:after {-webkit-transform: rotate(-45deg);-ms-transform: rotate(-45deg);-o-transform: rotate(-45deg);transform: rotate(-45deg);}.ever-popup__close:before {-webkit-transform: rotate(45deg);-ms-transform: rotate(45deg);-o-transform: rotate(45deg);transform: rotate(45deg);}' +
+			'@media screen and (min-width: ' + breakpoint + 'px' + '){' +
+			'.ever-popup__body.ever-desktop{display:none}' +
+			'.ever-popup__body.ever-mobile{display:block}' +
+			'}';
+		head.appendChild(cont)
+	}
+	function addMobilePopupStyle() {
+		// добавляем стили для нашего поапа
+		var cont = document.createElement('style'),
+			head = document.querySelector('head');
+		cont.innerHTML = '@media screen and (min-width: ' + breakpoint + 'px' + ') {.ever-popup {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0, 0, 0, .7);z-index: 111;display: none;overflow: auto;}.ever-popup__body {position: static;float: none;display: block;margin: 0 auto;width: auto}.ever-popup.show {display: block;align-items: center;}.ever-popup__inner {position: relative;margin: 0 auto;padding-top: 35px}.ever-popup__close {width: 35px;height: 30px;position: absolute;cursor: pointer;top: 0;right: 0;z-index: 1;-webkit-transition: .3s;-moz-transition: .3s;-ms-transition: .3s;-o-transition: .3s;transition: .3s;}.ever-popup__close:after, .ever-popup__close:before {content: "";position: absolute;right: 0;top: 10px;width: 35px;height: 10px;background: #fff;transition: all 1s;}.ever-popup__close:after {-webkit-transform: rotate(-45deg);-ms-transform: rotate(-45deg);-o-transform: rotate(-45deg);transform: rotate(-45deg);}.ever-popup__close:before {-webkit-transform: rotate(45deg);-ms-transform: rotate(45deg);-o-transform: rotate(45deg);transform: rotate(45deg);}}';
+		head.appendChild(cont)
+	}
+
+	function createOverlay() {
+		// создаем затемненный фон для попапа и вставляем его в разметку html
+		var parent = document.createElement('div'),
+			parentInner = document.createElement('div'),
+			closeParent = document.createElement('div');
+
+		parent.classList.add('ever-popup');
+		parentInner.classList.add('ever-popup__inner');
+		closeParent.classList.add('ever-popup__close');
+
+		parent.appendChild(parentInner);
+		parentInner.appendChild(closeParent);
+		document.body.appendChild(parent);
+	}
+
+	function createModalBody(breakpoint) {
+		// функция определяет содержимое для попапа, клонирует его содержимое, и поещает в контейнер ever-popup__body
+		var parent = document.querySelector('.ever-popup__inner');
+		if (desktop) {
+			var desktopClone = desktop.cloneNode(true);
+			desktopClone.classList.add('ever-popup__body');
+			desktopClone.removeAttribute('id');
+			parent.appendChild(desktopClone);
+			document.querySelector('.ever-popup .ever-popup__inner').style.width = document.querySelector('#cloneThis').offsetWidth + 'px';
+		}
+
+		if (mobile) {
+			var mobileClone = mobile.cloneNode(true);
+			if (desktopClone) {
+				desktopClone.classList.add('ever-desktop');
+			}
+			mobileClone.classList.add('ever-popup__body');
+			mobileClone.classList.add('ever-mobile');
+			mobileClone.removeAttribute('id');
+			parent.appendChild(mobileClone);
+			var mobileStyles = '.ever-desktop{display: block}.ever-mobile{display: none}@media screen and (min-width: ' + breakpoint + 'px){.ever-mobile{display: block}.ever-desktop{display: none;}}';
+
+			var mobileStylesContainer = document.createElement('style');
+			mobileStylesContainer.innerHTML = mobileStyles;
+			document.querySelector('head').appendChild(mobileStylesContainer)
+			document.querySelector('.ever-popup .ever-popup__inner').style.width = document.querySelector('#cloneMobileThis').offsetWidth + 'px';
+		}
+
+
+	}
+
+	function modalPosition(screenHeight) {
+		//расчет ширины и вывод ее в html, функция вызывается при загрузке страницы, а так же при ресайзе
+		var container = document.querySelector('.ever-popup  .ever-popup__inner');
+		if (container) {
+
+			var desktop = document.querySelector('#cloneThis'),
+				mobile = document.querySelector('#cloneMobileThis');
+
+			if (desktop) {
+				if (window.innerWidth >= breakpoint) {
+					checkPosition(desktop, container, screenHeight);
+					container.style.width = desktop.offsetWidth + 'px';
+				}
+				if (!mobile) {
+					checkPosition(desktop, container, screenHeight);
+					container.style.width = desktop.offsetWidth + 'px';
+				}
+			}
+			if (mobile) {
+				if (window.innerWidth <= breakpoint) {
+					checkPosition(mobile, container, screenHeight);
+					container.style.width = mobile.offsetWidth + 'px';
+				}
+			}
+		}
+	}
+
+	function checkPosition(selector, container, screenHeight) {
+		//позиционирование попапа по вертикали
+		var cont = selector,
+			contHeight = cont.offsetHeight;
+
+		if (contHeight > screenHeight) {
+			container.style.margin = '40px auto';
+		}
+		else {
+			var top = (screenHeight - contHeight) / 2;
+			container.style.margin = top + 'px auto 20px';
+		}
+	}
+
+	function showPopup() {
+		//функция для показа попапа
+		var popup = document.querySelector('.ever-popup');
+		popup.classList.add('show')
+	}
+
+	function hidePopup() {
+		//функция для скрытия попапа
+		var popup = document.querySelector('.ever-popup');
+		popup.classList.remove('show')
+	}
+
+	function notHide(e) {
+		//функция для прерывания выполнения сценария по клику
+		e.stopPropagation()
+	}
+
+	function checkCode(event) {
+		// проверка кода подлинности
+		event.preventDefault();
+
+		var code = document.querySelector(".check__field").value,
+			msg = document.querySelector(".check__result");
+
+		if (code.length === 15) {
+			msg.innerHTML = window.codeCorrect;
+		}
+		else if (code.length === 0) {
+			msg.innerHTML = window.codeEmpty;
+		} else {
+			msg.innerHTML = window.codeInvalid;
+		}
+	}
+	if (cookies['popup_mouseout_enabled'] == 'true') {
+		var mouseOutCount = 0;
+		document.body.addEventListener('mouseleave', function (event) {
+			//событие на увод мышки со страницы. если мышка уходит за верхнюю границу документа, вызывается попап
+			var e = event || window.event;
+			e = e.clientY;
+			var popup = document.querySelector('.ever-popup');
+
+			if (popup && e < 10 && mouseOutCount === 0) {
+				popup.classList.add('show');
+				mouseOutCount++;
+			}
+		});
+	}
+	function addPhoneBtn(breakpoint) {
+		// добавление синей трубки для вызова попапа на десктопе
+		var phoneBtnContainer = document.createElement('div');
+		phoneBtnContainer.classList.add('phoneBtnContainer');
+		phoneBtnContainer.innerHTML = '<div class="bluePhone"><div class=" phone-call cbh-phone cbh-green cbh-show ever-popup-btn cbh-static" id="clbh_phone_div"><div class="phoneJs"><div class="cbh-ph-circle"></div><div class="cbh-ph-circle-fill"></div><div class="cbh-ph-img-circle1"></div></div></div></div>';
+		document.body.appendChild(phoneBtnContainer);
+
+		var phoneStyles = document.createElement('style');
+		phoneStyles.innerHTML = '@media screen and (min-width: ' + breakpoint + 'px) {.phoneBtnContainer{position:fixed; right: 10px;bottom: 10px; visibility:hidden;background-color:transparent;width:200px;height:200px;cursor:pointer;z-index:99;-webkit-backface-visibility:hidden;-webkit-transform:translateZ(0);-webkit-transition:visibility .5s;-moz-transition:visibility .5s;-o-transition:visibility .5s;transition:visibility .5s}.cbh-phone.cbh-show{visibility:visible}@-webkit-keyframes fadeInRight{0%{opacity:0;-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}100%{opacity:1;-webkit-transform:none;transform:none}}@keyframes fadeInRight{0%{opacity:0;-webkit-transform:translate3d(100%,0,0);-ms-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}100%{opacity:1;-webkit-transform:none;-ms-transform:none;transform:none}}@-webkit-keyframes fadeInRightBig{0%{opacity:0;-webkit-transform:translate3d(2000px,0,0);transform:translate3d(2000px,0,0)}100%{opacity:1;-webkit-transform:none;transform:none}}@-webkit-keyframes fadeOutRight{0%{opacity:1}100%{opacity:0;-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}}@keyframes fadeOutRight{0%{opacity:1}100%{opacity:0;-webkit-transform:translate3d(100%,0,0);-ms-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0)}}.fadeOutRight{-webkit-animation-name:fadeOutRight;animation-name:fadeOutRight}.cbh-phone.cbh-static1{opacity:.6}.cbh-phone.cbh-hover1{opacity:1}.cbh-ph-circle{width:160px;height:160px;top:20px;left:20px;position:absolute;background-color:transparent;-webkit-border-radius:100%;-moz-border-radius:100%;border-radius:100%;border:2px solid rgba(30,30,30,.4);opacity:.1;-webkit-animation:cbh-circle-anim 1.2s infinite ease-in-out;-moz-animation:cbh-circle-anim 1.2s infinite ease-in-out;-ms-animation:cbh-circle-anim 1.2s infinite ease-in-out;-o-animation:cbh-circle-anim 1.2s infinite ease-in-out;animation:cbh-circle-anim 1.2s infinite ease-in-out;-webkit-transition:all .5s;-moz-transition:all .5s;-o-transition:all .5s;transition:all .5s}.cbh-phone.cbh-active .cbh-ph-circle1{-webkit-animation:cbh-circle-anim 1.1s infinite ease-in-out!important;-moz-animation:cbh-circle-anim 1.1s infinite ease-in-out!important;-ms-animation:cbh-circle-anim 1.1s infinite ease-in-out!important;-o-animation:cbh-circle-anim 1.1s infinite ease-in-out!important;animation:cbh-circle-anim 1.1s infinite ease-in-out!important}.cbh-phone.cbh-static .cbh-ph-circle{-webkit-animation:cbh-circle-anim 2.2s infinite ease-in-out!important;-moz-animation:cbh-circle-anim 2.2s infinite ease-in-out!important;-ms-animation:cbh-circle-anim 2.2s infinite ease-in-out!important;-o-animation:cbh-circle-anim 2.2s infinite ease-in-out!important;animation:cbh-circle-anim 2.2s infinite ease-in-out!important}.cbh-phone.cbh-hover .cbh-ph-circle{border-color:rgba(0,175,242,1);opacity:.5}.cbh-phone.cbh-green.cbh-hover .cbh-ph-circle{border-color:rgba(117,235,80,1);opacity:.5}.cbh-phone.cbh-green .cbh-ph-circle{border-color:rgba(0,175,242,1);opacity:.5}.cbh-phone.cbh-gray.cbh-hover .cbh-ph-circle{border-color:rgba(204,204,204,1);opacity:.5}.cbh-phone.cbh-gray .cbh-ph-circle{border-color:rgba(117,235,80,1);opacity:.5}.cbh-ph-circle-fill{width:100px;height:100px;top:50px;left:50px;position:absolute;background-color:#000;-webkit-border-radius:100%;-moz-border-radius:100%;border-radius:100%;border:2px solid transparent;opacity:.1;-webkit-animation:cbh-circle-fill-anim 2.3s infinite ease-in-out;-moz-animation:cbh-circle-fill-anim 2.3s infinite ease-in-out;-ms-animation:cbh-circle-fill-anim 2.3s infinite ease-in-out;-o-animation:cbh-circle-fill-anim 2.3s infinite ease-in-out;animation:cbh-circle-fill-anim 2.3s infinite ease-in-out;-webkit-transition:all .5s;-moz-transition:all .5s;-o-transition:all .5s;transition:all .5s}.cbh-phone.cbh-active .cbh-ph-circle-fill{-webkit-animation:cbh-circle-fill-anim 1.7s infinite ease-in-out!important;-moz-animation:cbh-circle-fill-anim 1.7s infinite ease-in-out!important;-ms-animation:cbh-circle-fill-anim 1.7s infinite ease-in-out!important;-o-animation:cbh-circle-fill-anim 1.7s infinite ease-in-out!important;animation:cbh-circle-fill-anim 1.7s infinite ease-in-out!important}.cbh-phone.cbh-static .cbh-ph-circle-fill{-webkit-animation:cbh-circle-fill-anim 2.3s infinite ease-in-out!important;-moz-animation:cbh-circle-fill-anim 2.3s infinite ease-in-out!important;-ms-animation:cbh-circle-fill-anim 2.3s infinite ease-in-out!important;-o-animation:cbh-circle-fill-anim 2.3s infinite ease-in-out!important;animation:cbh-circle-fill-anim 2.3s infinite ease-in-out!important;opacity:0!important} .cbh-phone.cbh-hover .cbh-ph-circle-fill{background-color:rgba(0,175,242,.5);opacity:.75!important}.cbh-phone.cbh-green.cbh-hover .cbh-ph-circle-fill{background-color:rgba(117,235,80,.5);opacity:.75!important}.cbh-phone.cbh-green .cbh-ph-circle-fill{background-color:rgba(0,175,242,.5);opacity:.75!important}.cbh-phone.cbh-gray.cbh-hover .cbh-ph-circle-fill{background-color:rgba(204,204,204,.5);opacity:.75!important}.cbh-phone.cbh-gray .cbh-ph-circle-fill{background-color:rgba(117,235,80,.5);opacity:.75!important}.cbh-ph-img-circle1{width:60px;height:60px;top:70px;left:70px;position:absolute;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNmlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarY6xSsNQFEDPi6LiUCsEcXB4kygotupgxqQtRRCs1SHJ1qShSmkSXl7VfoSjWwcXd7/AyVFwUPwC/0Bx6uAQIYODCJ7p3MPlcsGo2HWnYZRhEGvVbjrS9Xw5+8QMUwDQCbPUbrUOAOIkjvjB5ysC4HnTrjsN/sZ8mCoNTIDtbpSFICpA/0KnGsQYMIN+qkHcAaY6addAPAClXu4vQCnI/Q0oKdfzQXwAZs/1fDDmADPIfQUwdXSpAWpJOlJnvVMtq5ZlSbubBJE8HmU6GmRyPw4TlSaqo6MukP8HwGK+2G46cq1qWXvr/DOu58vc3o8QgFh6LFpBOFTn3yqMnd/n4sZ4GQ5vYXpStN0ruNmAheuirVahvAX34y/Axk/96FpPYgAAACBjSFJNAAB6JQAAgIMAAPn/AACA6AAAUggAARVYAAA6lwAAF2/XWh+QAAAB/ElEQVR42uya7W3CMBCG31QM4A1aNggTlG6QbpBMkHYC1AloJ4BOABuEDcgGtBOETnD9c1ERCH/lwxeaV8oPFGP86Hy+DxMREW5Bd7gRjSDSNGn4/RiAOvm8C0ZCRD5PSkQVXSr1nK/xE3mcWimA1ZV3JYBZCIO4giQANoYxMwYS6+xKY4lT5dJPreWZY+uspqSCKPYN27GJVBDXheVSQe494ksiEWTuMXcu1dld9SARxDX1OAJ4lgjy4zDnFsC076A4adEiRwAZg4hOUSpNoCsBPDGM+HqkNGynYBCuILuWj+dgWysGsNe8nwL4GsrW0m2fxZBq9rW0rNcX5MOQ9eZD8JFahcG5g/iKT671alGAYQggpYWvpEPYWrU/HDTOfeRIX0q2SL3QN4tGhZJukVobQyXYWw7WtLDKDIuM+ZSzscyCE9PCy5IttCvnZNaeiGLNHKuz8ZVh/MXTVu/1xQKmIqLEAuJ0fNo3iG5B51oSkeKnsBi/4bG9gYB/lCytU5G9DryFW+3Gm+JLwU7ehbJrwTjq4DJU8bHcVbEV9dXXqqP6uqO5e2/QZRYJpqu2IUAA4B3tXvx8hgKp05QZW6dJqrLTNkB6vrRURLRwPHqtYgkC3cLWQAcDQGGKH13FER/NATzi786+BPDNjm1dMkfjn2pGkBHkf4D8DgBJDuDHx9BN+gAAAABJRU5ErkJggg==);background-color:rgba(30,30,30,.1);background-position:center center;background-repeat:no-repeat;-webkit-border-radius:100%;-moz-border-radius:100%;border-radius:100%;border:2px solid transparent;opacity:.7;-webkit-animation:cbh-circle-img-anim 1s infinite ease-in-out;-moz-animation:cbh-circle-img-anim 1s infinite ease-in-out;-ms-animation:cbh-circle-img-anim 1s infinite ease-in-out;-o-animation:cbh-circle-img-anim 1s infinite ease-in-out;animation:cbh-circle-img-anim 1s infinite ease-in-out}.cbh-phone.cbh-active .cbh-ph-img-circle1{-webkit-animation:cbh-circle-img-anim 1s infinite ease-in-out!important;-moz-animation:cbh-circle-img-anim 1s infinite ease-in-out!important;-ms-animation:cbh-circle-img-anim 1s infinite ease-in-out!important;-o-animation:cbh-circle-img-anim 1s infinite ease-in-out!important;animation:cbh-circle-img-anim 1s infinite ease-in-out!important}.cbh-phone.cbh-static .cbh-ph-img-circle1{-webkit-animation:cbh-circle-img-anim 0s infinite ease-in-out!important;-moz-animation:cbh-circle-img-anim 0s infinite ease-in-out!important;-ms-animation:cbh-circle-img-anim 0s infinite ease-in-out!important;-o-animation:cbh-circle-img-anim 0s infinite ease-in-out!important;animation:cbh-circle-img-anim 0s infinite ease-in-out!important}.cbh-phone.cbh-hover .cbh-ph-img-circle1{background-color:rgba(0,175,242,1)}.cbh-phone.cbh-green.cbh-hover .cbh-ph-img-circle1:hover{background-color:rgba(117,235,80,1)}.cbh-phone.cbh-green .cbh-ph-img-circle1{background-color:rgba(0,175,242,1)}.cbh-phone.cbh-green .cbh-ph-img-circle1{background-color:rgba(0,175,242,1)}.cbh-phone.cbh-gray.cbh-hover .cbh-ph-img-circle1{background-color:rgba(204,204,204,1)}.cbh-phone.cbh-gray .cbh-ph-img-circle1{background-color:rgba(117,235,80,1)}@-moz-keyframes cbh-circle-anim{0%{-moz-transform:rotate(0deg) scale(0.5) skew(1deg);opacity:.1;-moz-opacity:.1;-webkit-opacity:.1;-o-opacity:.1}30%{-moz-transform:rotate(0deg) scale(.7) skew(1deg);opacity:.5;-moz-opacity:.5;-webkit-opacity:.5;-o-opacity:.5}100%{-moz-transform:rotate(0deg) scale(1) skew(1deg);opacity:.6;-moz-opacity:.6;-webkit-opacity:.6;-o-opacity:.1}}@-webkit-keyframes cbh-circle-anim{0%{-webkit-transform:rotate(0deg) scale(0.5) skew(1deg);-webkit-opacity:.1}30%{-webkit-transform:rotate(0deg) scale(.7) skew(1deg);-webkit-opacity:.5}100%{-webkit-transform:rotate(0deg) scale(1) skew(1deg);-webkit-opacity:.1}}@-o-keyframes cbh-circle-anim{0%{-o-transform:rotate(0deg) kscale(0.5) skew(1deg);-o-opacity:.1}30%{-o-transform:rotate(0deg) scale(.7) skew(1deg);-o-opacity:.5}100%{-o-transform:rotate(0deg) scale(1) skew(1deg);-o-opacity:.1}}@keyframes cbh-circle-anim{0%{transform:rotate(0deg) scale(0.5) skew(1deg);opacity:.1}30%{transform:rotate(0deg) scale(.7) skew(1deg);opacity:.5}100%{transform:rotate(0deg) scale(1) skew(1deg);opacity:.1}}@-moz-keyframes cbh-circle-fill-anim{0%{-moz-transform:rotate(0deg) scale(0.7) skew(1deg);opacity:.2}50%{-moz-transform:rotate(0deg) -moz-scale(1) skew(1deg);opacity:.2}100%{-moz-transform:rotate(0deg) scale(0.7) skew(1deg);opacity:.2}}@-webkit-keyframes cbh-circle-fill-anim{0%{-webkit-transform:rotate(0deg) scale(0.7) skew(1deg);opacity:.2}50%{-webkit-transform:rotate(0deg) scale(1) skew(1deg);opacity:.2}100%{-webkit-transform:rotate(0deg) scale(0.7) skew(1deg);opacity:.2}}@-o-keyframes cbh-circle-fill-anim{0%{-o-transform:rotate(0deg) scale(0.7) skew(1deg);opacity:.2}50%{-o-transform:rotate(0deg) scale(1) skew(1deg);opacity:.2}100%{-o-transform:rotate(0deg) scale(0.7) skew(1deg);opacity:.2}}@keyframes cbh-circle-fill-anim{0%{transform:rotate(0deg) scale(0.7) skew(1deg);opacity:.2}50%{transform:rotate(0deg) scale(1) skew(1deg);opacity:.2}100%{transform:rotate(0deg) scale(0.7) skew(1deg);opacity:.2}}@keyframes cbh-circle-img-anim{0%{transform:rotate(0deg) scale(1) skew(1deg)}10%{transform:rotate(-25deg) scale(1) skew(1deg)}20%{transform:rotate(25deg) scale(1) skew(1deg)}30%{transform:rotate(-25deg) scale(1) skew(1deg)}40%{transform:rotate(25deg) scale(1) skew(1deg)}100%,50%{transform:rotate(0deg) scale(1) skew(1deg)}}@-moz-keyframes cbh-circle-img-anim{0%{transform:rotate(0deg) scale(1) skew(1deg)}10%{-moz-transform:rotate(-25deg) scale(1) skew(1deg)}20%{-moz-transform:rotate(25deg) scale(1) skew(1deg)}30%{-moz-transform:rotate(-25deg) scale(1) skew(1deg)}40%{-moz-transform:rotate(25deg) scale(1) skew(1deg)}100%,50%{-moz-transform:rotate(0deg) scale(1) skew(1deg)}}@-webkit-keyframes cbh-circle-img-anim{0%{-webkit-transform:rotate(0deg) scale(1) skew(1deg)}10%{-webkit-transform:rotate(-25deg) scale(1) skew(1deg)}20%{-webkit-transform:rotate(25deg) scale(1) skew(1deg)}30%{-webkit-transform:rotate(-25deg) scale(1) skew(1deg)}40%{-webkit-transform:rotate(25deg) scale(1) skew(1deg)}100%,50%{-webkit-transform:rotate(0deg) scale(1) skew(1deg)}}@-o-keyframes cbh-circle-img-anim{0%{-o-transform:rotate(0deg) scale(1) skew(1deg)}10%{-o-transform:rotate(-25deg) scale(1) skew(1deg)}20%{-o-transform:rotate(25deg) scale(1) skew(1deg)}30%{-o-transform:rotate(-25deg) scale(1) skew(1deg)}40%{-o-transform:rotate(25deg) scale(1) skew(1deg)}100%,50%{-o-transform:rotate(0deg) scale(1) skew(1deg)}}.cbh-ph-img-circle1 {}.cbh-phone.cbh-green .cbh-ph-circle {border-color: rgba(0, 175, 242, 1)}.cbh-phone.cbh-green .cbh-ph-circle-fill {background-color: rgba(0, 175, 242, 1);}.cbh-phone.cbh-green .cbh-ph-img-circle1 {background-color:rgba(0, 175, 242, 1);}body, div, dl, dt, dd, ul, ol, li, nav, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td, a {-webkit-transform-origin: center center;-ms-transform-origin: center center;-o-transform-origin: center center;transform-origin: center center;}}';
+		document.querySelector('head').appendChild(phoneStyles);
+		document.querySelector('.phoneBtnContainer').addEventListener('click', showPopup);
+	}
+
+	function init() {
+
+		var desktopPopup = document.querySelector('#cloneThis'),
+			mobilePopup = document.querySelector('#cloneMobileThis');
+		var h = document.querySelector('.hours'), m = document.querySelector('.minutes'),
+			s = document.querySelector('.seconds');
+
+		if (h && m && s) {
+			// если все значения (часы/минуты/секунды) сущесвтуют, тогда срабатывает таймер
+			initializeTimer();
+		}
+		if (desktopPopup) {
+			createOverlay();
+			addPopupStyle();
+			if (cookies['popup_callback_enabled'] == 'true' || location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+				addPhoneBtn(breakpoint);
+			}
+		}
+		else {
+			createOverlay();
+			addMobilePopupStyle()
+		}
+		if (desktopPopup || mobilePopup) {
+			//если у нас есть #cloneThis или #cloneMobileThis, тогда все функции ниже выполняются
+
+			createModalBody(breakpoint);
+			modalPosition(window.innerHeight);
+
+			document.addEventListener('click', function(e) {
+				if (e.target === document.querySelector('.ever-popup') ||
+						e.target === document.querySelector('.ever-popup__close')) {
+						hidePopup();
+				}
+		});
+			document.addEventListener('keydown', function(e) {
+				if (e.keyCode === 27) {
+						hidePopup();
+				}
+		});
+
+			var modalBtn = document.querySelectorAll('.ever-popup-btn');
+			for (var i = 0; i < modalBtn.length; i++) {
+				modalBtn && modalBtn[i].addEventListener('click', function () {
+                    showPopup();
+					modalPosition(window.innerHeight)
+                });
+			}
+		}
+		// рабоатет если у нас есть класс .check__btn
+		var checkBtn = document.querySelector(".check__btn");
+		checkBtn && checkBtn.addEventListener('click', checkCode);
+	}
+
+	init();
+
+	window.addEventListener('resize', function () {
+		//при ресайзе пересчитываем позиционирование модального окна
+		modalPosition(window.innerHeight);
+	});
+
+    function initializeTimer() {
+        // Додади клас "timer-different" для <body>, якщо необхідно розділяти розряди годин, хвилин і секунд. Наприклад, http://prntscr.com/japnvo
+
+        if (!localStorage.getItem("ever-timer")) {
+            var time = {
+                hours: 0,
+                minutes: 27,
+                seconds: 0
+            };
+
+            time = time.hours * 3600 + time.minutes * 60 + time.seconds;
+
+            localStorage.setItem("time", time);
+            localStorage.setItem("ever-timer", true);
+        }
+
+        timerSettings();
+    }
+
+    function timerSettings() {
+        var time = localStorage.getItem('time'),
+            different = document.querySelector(".timer-different"),
+            hours = parseInt(time / 3600, 10),
+            minutes = parseInt((time - hours * 3600 ) / 60, 10),
+            seconds = parseInt(time % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : "" + minutes;
+        seconds = seconds < 10 ? "0" + seconds : "" + seconds;
+        hours = hours < 10 ? "0" + hours : "" + hours;
+
+        var hoursHTML = document.getElementsByClassName("hours");
+        var minutesHTML = document.getElementsByClassName("minutes");
+        var secondsHTML = document.getElementsByClassName("seconds");
+
+        if (--time < 0) {
+            localStorage.removeItem("ever-timer");
+            return;
+        }
+        if (different) {
+            seconds = seconds.split("");
+            minutes = minutes.split("");
+            hours = hours.split("");
+
+            diFilling(hoursHTML, hours);
+            diFilling(minutesHTML, minutes);
+            diFilling(secondsHTML, seconds);
+        } else {
+            filling(hoursHTML, hours);
+            filling(minutesHTML, minutes);
+            filling(secondsHTML, seconds);
+        }
+
+        localStorage.setItem("time", time);
+        setTimeout(timerSettings, 1000);
+    }
+
+    function filling(obj, value) {
+        for (var i = 0; i < obj.length; i++) {
+            obj[i].innerHTML = value;
+        }
+    }
+
+    function diFilling(obj, value) {
+        for (var i = 0; i < obj.length; i++) {
+            obj[i].innerHTML = value[i % 2];
+        }
+    }
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+	var modals = document.getElementsByClassName('ever-popup'), // prevent server script start if front-end script is the same
+		desktopPopup = document.querySelector('#cloneThis'),
+		mobilePopup = document.querySelector('#cloneMobileThis');
+
+	if (desktopPopup || mobilePopup) {
+		if (!modals.length) {
+			initiate(cookies);
+		}
+	}
+});
+</script>
+
+      <?php
+if (!function_exists('curl_version')) {
+    echo 'Curl is not installed';
+}
+
+if ($_SERVER["REQUEST_METHOD"]=="POST") {
+    // Required params
+    $token = 'YZA0ZJDLZWYTZDK4ZC00YMJJLWJJNJATODZKNGJJMTE2MZQ4';
+    $stream_code = '8e3z4';
+
+    // Fields to send
+    $post_fields = [
+        'stream_code'   => $stream_code,    // required
+        'client'        => [
+            'phone'     => $_POST['phone'], // required
+            'name'      => $_POST['name'],
+            'surname'   => (empty($_POST['surname'])) ? null : $_POST['surname'],
+            'email'     => (empty($_POST['email'])) ? null : $_POST['email'],
+            'address'   => (empty($_POST['address'])) ? null : $_POST['address'],
+            'ip'        => (empty($_POST['ip'])) ? null : $_POST['ip'],
+            'country'   => (empty($_POST['country'])) ? null : $_POST['country'],
+            'city'      => (empty($_POST['city'])) ? null : $_POST['city'],
+            'postcode'  => (empty($_POST['postcode'])) ? null : $_POST['postcode'],
+        ],
+        'sub1'      => (empty($_POST['sub1'])) ? $_GET['sub1'] : $_POST['sub1'],
+        'sub2'      => (empty($_POST['sub2'])) ? $_GET['sub2'] : $_POST['sub2'],
+        'sub3'      => (empty($_POST['sub3'])) ? $_GET['sub3'] : $_POST['sub3'],
+        'sub4'      => (empty($_POST['sub4'])) ? $_GET['sub4'] : $_POST['sub4'],
+        'sub5'      => (empty($_POST['sub5'])) ? $_GET['sub5'] : $_POST['sub5'],
+    ];
+
+    $headers = [
+        'Content-Type: application/json',
+        'Authorization: Bearer ' . $token
+    ];
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL,"https://order.drcash.sh/v1/order");
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_fields));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_HEADER, true);
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    $response = curl_exec($ch);
+    $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+    $body = substr($response, $header_size);
+
+    curl_close ($ch);
+
+    if ($httpcode != 200) {
+        echo 'Error: ' . $httpcode;
+        echo '<br>';
+        echo $response;
+    }
+    if ($httpcode == 200) {
+        echo '<script language="javascript" type="text/javascript">
+            window.location.href = "./thanks";
+        </script>';
+    }
+}
+?>
+</body></html>
