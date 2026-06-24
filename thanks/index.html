@@ -1,102 +1,655 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <title>LAZARD worldwide healthcare | Thank you for placing an order!!</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="favicon.ico">
-    <!-- css styles -->
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/livingston-css3-mediaqueries-js/1.0.0/css3-mediaqueries.min.js"></script><![endif]-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/css/flag-icon.min.css">
-    <!-- build:css assets/css/style.min.css-->
-    <link rel="stylesheet" href="assets/css/fonts.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- endbuild -->
-    <!-- end css styles -->
-    <!-- INTH_SNIPPET_TOP -->
-  </head>
-  <body>
-    <div class="d-flex flex-column justify-content-between h-100">
-      <!-- header-->
-      <header class="header">
-        <div class="container">
-          <div class="d-flex align-items-center">
-            <div class="logo header-logo"><a href="#"><img class="logo__img" src="assets/images/logo/logo.svg" alt="logo"></a></div>
-            <p class="header__text m-0">Official distributor of <span class="current-product__name">Vitality Plus Ultra  </span><span class="country"></span></p>
-          </div>
-        </div>
-      </header>
-      <!-- main-->
-      <main class="main">
-        <div class="container">
-          <div class="row">
-            <div class="order__content clearfix">
-              <div class="col-md-6 float-md-left pr-md-2">
-                <div class="order-info__content order-info__content_light_green mb-sm-3 mb-2">
-                  <div class="order-info__info-line">
-                    <div class="d-flex align-items-center"><img class="order-is-issued__img" src="assets/images/icons/order_green.svg" alt="order">
-                      <p class="order-info__title m-0">Thank you for placing an order!</p>
-                    </div>
-                  </div>
-                  <p class="order-info__text m-0"> <span class="current-product__name font-weight-bold">Vitality Plus Ultra </span>&nbsp;product specialist will contact you soon to answer your questions and clarify delivery details.</p>
-                </div>
-              </div>
-              <div class="col-md-6 float-md-right pl-md-2">
-                <div class="order-product__content mb-3">
-                  <div class="order-product__item current-product">
-                    <div class="d-flex align-items-center justify-content-between">
-                      <div class="order-product-spec-wrap">
-                        <p class="order-id">Your order number is <span class="order-id__value">8624410-ID</span></p>
-                        <p class="current-product__text"><span class="current-product__name">Vitality Plus Ultra </span></p>
-                        <p class="current-product__description m-0"></p>
-                      </div><img class="current-product__img" src="https://static.statthroat.tech/offers/a6b7afca-1238-4dfb-8fff-eae4822308da.png" alt="product">
-                    </div>
-                  </div>
-                  
-                  <div class="order-product__item product-guarantee">
-                    <div class="d-flex align-items-center"><img class="label label_img guarantee-label_img" src="assets/images/labels/guarantee.png" alt="guarantee">
-                      <p class="product-guarantee_text">100% satisfaction guarantee or your money back during 365 days</p>
-                    </div>
-                  </div>
-                  <div class="order-product__item product-confirmed">
-                    <div class="d-flex align-items-center"><img class="label label_img" src="assets/images/labels/confirmed.png" alt="confirmed">
-                      <p class="product-confirmed_text">Product safety and effectiveness are clinically confirmed</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      </main>
-      <!-- footer-->
-      <footer class="footer">
-        <div class="container">
-          <div class="d-flex align-items-center">
-            <div class="company-about__content">
-              <div class="logo footer-logo"><a href="#"><img class="logo__img" src="assets/images/logo/logo.svg" alt="logo"></a></div>
-            </div>
-            <div class="footer-contacts__content">
-              <div class="d-flex justify-content-between flex-xl-row flex-column">
-                <p class="footer_address__text m-0">Lazard inc. Grenzacherstrasse 124, floor 9-16 4058 Basel, Switzerland</p>
-                <p class="footer-phone__text m-0">Phone: &nbsp;<a class="footer-phone__link" href="tel:+62215727585">+62 21 5727585</a></p><a class="footer-url__link" href="lazardhealthcare.com" target="_blank">lazardhealthcare.com</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+<html lang="hu">
+<head>
+  <title>Köszönjük a rendelést! | Vitality Plus Ultra</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Köszönjük a Vitality Plus Ultra megrendelését. Hamarosan felvesszük Önnel a kapcsolatot.">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #16a34a;
+      --green-light: #dcfce7;
+      --green-mid:   #22c55e;
+      --amber:       #f59e0b;
+      --amber-light: #fef3c7;
+      --red:         #dc2626;
+      --red-light:   #fee2e2;
+      --blue:        #2563eb;
+      --blue-light:  #dbeafe;
+      --gray-50:     #f9fafb;
+      --gray-100:    #f3f4f6;
+      --gray-200:    #e5e7eb;
+      --gray-400:    #9ca3af;
+      --gray-600:    #4b5563;
+      --gray-800:    #1f2937;
+      --gray-900:    #111827;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-900);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: #fff;
+      border-bottom: 1px solid var(--gray-200);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 8px rgba(0,0,0,.06);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .header__logo img { height: 42px; }
+    .header__divider {
+      width: 1px;
+      height: 32px;
+      background: var(--gray-200);
+    }
+    .header__label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-600);
+    }
+    .header__label span { color: var(--green); }
+    .header__badge {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+    .header__badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse-dot 1.5s infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:.5; transform:scale(1.3); }
+    }
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    /* ── STOCK ALERT ── */
+    .stock-alert {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--red-light);
+      border: 1.5px solid #fca5a5;
+      border-radius: 12px;
+      padding: 14px 20px;
+      margin-bottom: 28px;
+      animation: slide-in .5s ease;
+    }
+    .stock-alert__icon { font-size: 22px; flex-shrink: 0; }
+    .stock-alert__text { font-size: 14px; font-weight: 700; color: var(--red); line-height: 1.4; }
+    .stock-alert__text span { display: block; font-weight: 500; color: #7f1d1d; margin-top: 2px; }
+
+    /* ── SUCCESS CARD ── */
+    .success-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+      overflow: hidden;
+      margin-bottom: 24px;
+      animation: slide-in .5s ease .1s both;
+    }
+    .success-card__top {
+      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .success-icon {
+      width: 60px; height: 60px;
+      background: rgba(255,255,255,.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+    .success-card__top-text h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .success-card__top-text p {
+      font-size: 14px;
+      color: rgba(255,255,255,.85);
+      line-height: 1.5;
+    }
+
+    .success-card__body {
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 680px) {
+      .success-card__body { grid-template-columns: 1fr; }
+      .success-card__top { padding: 20px; }
+      .success-card__top-text h1 { font-size: 18px; }
+    }
+
+    /* Order info left */
+    .order-meta { display: flex; flex-direction: column; gap: 16px; }
+
+    .order-number-box {
+      background: var(--gray-50);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 16px 20px;
+    }
+    .order-number-box__label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--gray-400);
+      margin-bottom: 6px;
+    }
+    .order-number-box__value {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--gray-900);
+      letter-spacing: .02em;
+    }
+    .order-number-box__sub {
+      font-size: 12px;
+      color: var(--gray-400);
+      margin-top: 4px;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: var(--blue-light);
+      border: 1px solid #bfdbfe;
+    }
+    .info-row__icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .info-row__text { font-size: 14px; color: #1e3a8a; line-height: 1.55; }
+    .info-row__text strong { display: block; font-size: 15px; margin-bottom: 3px; color: var(--blue); }
+
+    /* Product right */
+    .product-panel { display: flex; flex-direction: column; gap: 16px; }
+
+    .product-box {
+      border: 1.5px solid var(--gray-200);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .product-box__img {
+      width: 100px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+    .product-box__info { flex: 1; }
+    .product-box__name {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: 6px;
+    }
+    .product-box__qty {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-600);
+    }
+
+    /* Badges */
+    .badges { display: flex; flex-direction: column; gap: 10px; }
+    .badge-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1.5px solid var(--gray-200);
+      background: #fff;
+    }
+    .badge-row img { height: 40px; flex-shrink: 0; object-fit: contain; }
+    .badge-row__text { font-size: 13px; font-weight: 600; color: var(--gray-700); line-height: 1.4; }
+
+    /* EU badge */
+    .eu-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1.5px solid #bfdbfe;
+      background: var(--blue-light);
+    }
+    .eu-flag { font-size: 28px; flex-shrink: 0; }
+    .eu-badge__text { font-size: 13px; font-weight: 700; color: #1e40af; line-height: 1.4; }
+    .eu-badge__text span { display: block; font-size: 11px; font-weight: 500; color: #3b82f6; margin-top: 2px; }
+
+    /* ── TRIGGERS SECTION ── */
+    .triggers-section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .triggers-section__title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--gray-400);
+      margin-bottom: 4px;
+    }
+
+    .trigger-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+      overflow: hidden;
+      display: flex;
+      align-items: stretch;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .5s ease, transform .5s ease, box-shadow .3s;
+    }
+    .trigger-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .trigger-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.1); }
+
+    .trigger-card__accent {
+      width: 6px;
+      flex-shrink: 0;
+      background: var(--amber);
+    }
+    .trigger-card__accent.red   { background: var(--red); }
+    .trigger-card__accent.blue  { background: var(--blue); }
+
+    .trigger-card__body {
+      padding: 20px 24px;
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .trigger-card__icon-wrap {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .icon-amber { background: var(--amber-light); }
+    .icon-red   { background: var(--red-light); }
+    .icon-blue  { background: var(--blue-light); }
+
+    .trigger-card__content { flex: 1; }
+    .trigger-card__step {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--gray-400);
+      margin-bottom: 4px;
+    }
+    .trigger-card__heading {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .trigger-card__text {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    .trigger-card__timer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      flex-shrink: 0;
+      padding-left: 16px;
+    }
+    .timer-display {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--red);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: .02em;
+    }
+    .timer-label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--gray-400);
+    }
+
+    /* ── DISTRIBUTOR ── */
+    .distributor-bar {
+      background: #fff;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 14px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      animation: slide-in .5s ease .4s both;
+    }
+    .distributor-bar img { height: 36px; flex-shrink: 0; }
+    .distributor-bar__divider { width:1px; height:32px; background:var(--gray-200); }
+    .distributor-bar__text { font-size: 13px; font-weight: 700; color: var(--gray-700); }
+    .distributor-bar__text span { color: var(--green); }
+    .distributor-bar__seal {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green);
+    }
+    .distributor-bar__seal::before {
+      content: '✓';
+      width: 20px; height: 20px;
+      background: var(--green);
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 1px solid var(--gray-200);
+      background: #fff;
+      padding: 20px 0;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer__logo img { height: 32px; }
+    .footer__divider { width:1px; height:28px; background:var(--gray-200); }
+    .footer__info { font-size: 11px; color: var(--gray-400); line-height: 1.6; }
+    .footer__info a { color: var(--gray-400); text-decoration: none; }
+    .footer__info a:hover { color: var(--blue); }
+
+    @keyframes slide-in {
+      from { opacity:0; transform:translateY(16px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .trigger-card__body { flex-direction: column; gap: 12px; }
+      .trigger-card__timer { flex-direction: row; padding-left: 0; padding-top: 8px; border-top: 1px solid var(--gray-100); width: 100%; justify-content: flex-start; }
+      .distributor-bar__seal { display: none; }
+      .product-box { flex-direction: column; text-align: center; }
+      .product-box__img { width: 120px; }
+      .header__badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="header__logo">
+        <a href="#"><img src="assets/images/logo/logo.svg" alt="Vitality Plus Ultra logó"></a>
+      </div>
+      <div class="header__divider"></div>
+      <p class="header__label">A <span>Vitality Plus Ultra</span> hivatalos forgalmazója</p>
+      <div class="header__badge">Rendelés visszaigazolva</div>
     </div>
-    <!-- js scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!-- build:js assets/js/main.min.js -->
-    <script src="assets/js/main.js"></script>
-    <!-- endbuild -->
-    <!-- end js scripts-->
-    <!-- INTH_SNIPPET_BOTTOM -->
-  </body>
+  </header>
+
+  <!-- ── MAIN ── -->
+  <main>
+    <div class="page-wrap">
+
+      <!-- Stock Alert -->
+      <div class="stock-alert">
+        <div class="stock-alert__icon">⚠️</div>
+        <div class="stock-alert__text">
+          FIGYELEM: Jelenleg alacsony a készletszint!
+          <span>Az Ön rendelése foglalt és feldolgozás alatt áll. Kérjük, legyen elérhető telefonon.</span>
+        </div>
+      </div>
+
+      <!-- Success Card -->
+      <div class="success-card">
+        <div class="success-card__top">
+          <div class="success-icon">✅</div>
+          <div class="success-card__top-text">
+            <h1>Köszönjük a rendelését!</h1>
+            <p>Rendelése sikeresen rögzítve lett. Hamarosan felvesszük Önnel a kapcsolatot a szállítás részleteinek egyeztetése érdekében.</p>
+          </div>
+        </div>
+        <div class="success-card__body">
+
+          <!-- LEFT: Order Info -->
+          <div class="order-meta">
+            <div class="order-number-box">
+              <div class="order-number-box__label">Rendelésszám</div>
+              <div class="order-number-box__value" id="orderNumber">– – –</div>
+              <div class="order-number-box__sub">Tartsa meg ezt a számot a rendelés nyomon követéséhez</div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-row__icon">📞</div>
+              <div class="info-row__text">
+                <strong>Mire számíthat ezután?</strong>
+                Egy Vitality Plus Ultra termékspecialista rövid időn belül felveszi Önnel a kapcsolatot, hogy megválaszolja kérdéseit, pontosítsa a szállítás részleteit és személyre szabott kezelési tervet készítsen Önnek.
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Product + Badges -->
+          <div class="product-panel">
+            <div class="product-box">
+              <img class="product-box__img"
+                   src="https://static.statthroat.tech/offers/a6b7afca-1238-4dfb-8fff-eae4822308da.png"
+                   alt="Vitality Plus Ultra termék"
+                   onerror="this.src='assets/images/logo/product1.png'">
+              <div class="product-box__info">
+                <div class="product-box__name">Vitality Plus Ultra</div>
+                <div class="product-box__qty">Prémium kiegészítő csomag</div>
+              </div>
+            </div>
+
+            <div class="badges">
+              <div class="badge-row">
+                <img src="assets/images/labels/guarantee.png" alt="Garancia">
+                <div class="badge-row__text">100%-os elégedettségi garancia<br>vagy visszafizetés 365 napon belül</div>
+              </div>
+              <div class="eu-badge">
+                <div class="eu-flag">🇪🇺</div>
+                <div class="eu-badge__text">
+                  A termék biztonsága és hatékonysága klinikailag igazolt
+                  <span>Európai Uniós előírásoknak megfelelő tanúsítással</span>
+                </div>
+              </div>
+              <div class="badge-row">
+                <img src="assets/images/labels/confirmed.png" alt="Megerősítve">
+                <div class="badge-row__text">Orvosi felügyelet alatt tesztelt<br>és jóváhagyott formula</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── TRIGGERS ── -->
+      <div class="triggers-section__title">A következő lépések</div>
+      <div class="triggers-section">
+
+        <!-- Trigger 1 -->
+        <div class="trigger-card" id="trigger1">
+          <div class="trigger-card__accent"></div>
+          <div class="trigger-card__body">
+            <div class="trigger-card__icon-wrap icon-amber">📱</div>
+            <div class="trigger-card__content">
+              <div class="trigger-card__step">1. lépés</div>
+              <div class="trigger-card__heading">FIGYELJEN A TELEFONJÁRA</div>
+              <div class="trigger-card__text">
+                Egy <strong>Vitality Plus Ultra termékspecialista</strong> hamarosan felveszi Önnel a kapcsolatot, hogy megválaszolja kérdéseit, pontosítsa a szállítás részleteit és elkészítse az Ön személyre szabott kezelési tervét. Tartsa telefonját elérhető közelségben!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trigger 2 -->
+        <div class="trigger-card" id="trigger2">
+          <div class="trigger-card__accent blue"></div>
+          <div class="trigger-card__body">
+            <div class="trigger-card__icon-wrap icon-blue">📲</div>
+            <div class="trigger-card__content">
+              <div class="trigger-card__step">2. lépés</div>
+              <div class="trigger-card__heading">FOGADJA EL HÍVÁSAINKAT</div>
+              <div class="trigger-card__text">
+                Kérjük, <strong>fogadja el</strong> a hívást ismeretlen számról is — munkatársunk a rendelése véglegesítése érdekében hívja Önt. Az el nem fogadott hívás esetén a rendelés automatikusan törlődhet.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trigger 3 – with countdown -->
+        <div class="trigger-card" id="trigger3">
+          <div class="trigger-card__accent red"></div>
+          <div class="trigger-card__body">
+            <div class="trigger-card__icon-wrap icon-red">🔥</div>
+            <div class="trigger-card__content">
+              <div class="trigger-card__step">3. lépés — FONTOS</div>
+              <div class="trigger-card__heading">NE HAGYJA KI EZT AZ AJÁNLATOT!</div>
+              <div class="trigger-card__text">
+                <strong>30 percen belül felvesszük Önnel a kapcsolatot!</strong> Az ajánlat korlátozott időre szól és az alacsony készletszint miatt hamar lejárhat. Maradjon elérhető, hogy ne veszítse el foglalt helyét.
+              </div>
+            </div>
+            <div class="trigger-card__timer">
+              <div class="timer-display" id="countdown">30:00</div>
+              <div class="timer-label">hátralévő idő</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── DISTRIBUTOR BAR ── -->
+      <div class="distributor-bar">
+        <img src="assets/images/logo/logo.svg" alt="Vitality Plus Ultra">
+        <div class="distributor-bar__divider"></div>
+        <div class="distributor-bar__text">
+          <span>Vitality Plus Ultra</span> — Hivatalos forgalmazó
+        </div>
+        <div class="distributor-bar__seal">Hitelesített kereskedő</div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer__logo">
+        <a href="#"><img src="assets/images/logo/logo.svg" alt="Vitality Plus Ultra"></a>
+      </div>
+      <div class="footer__divider"></div>
+      <div class="footer__info">
+        Lazard inc. · Grenzacherstrasse 124, 9-16 emelet · 4058 Basel, Svájc<br>
+        Tel: <a href="tel:+62215727585">+62 21 5727585</a> · <a href="http://lazardhealthcare.com" target="_blank">lazardhealthcare.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── ORDER NUMBER ── */
+    function randomOrderId() {
+      return Math.floor(1000000 + Math.random() * 9000000) + '-ID';
+    }
+    document.getElementById('orderNumber').textContent = randomOrderId();
+
+    /* ── STAGGERED TRIGGER REVEAL ── */
+    var triggers = ['trigger1', 'trigger2', 'trigger3'];
+    triggers.forEach(function(id, i) {
+      setTimeout(function() {
+        var el = document.getElementById(id);
+        if (el) el.classList.add('visible');
+      }, 300 + i * 350);
+    });
+
+    /* ── COUNTDOWN (30 min) ── */
+    var COUNTDOWN_KEY = 'vpu_countdown_end';
+    var endTime = parseInt(localStorage.getItem(COUNTDOWN_KEY), 10);
+    if (!endTime || endTime <= Date.now()) {
+      endTime = Date.now() + 30 * 60 * 1000;
+      localStorage.setItem(COUNTDOWN_KEY, endTime);
+    }
+
+    function updateCountdown() {
+      var remaining = Math.max(0, endTime - Date.now());
+      var mins = Math.floor(remaining / 60000);
+      var secs = Math.floor((remaining % 60000) / 1000);
+      document.getElementById('countdown').textContent =
+        String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
+      if (remaining > 0) {
+        setTimeout(updateCountdown, 1000);
+      } else {
+        document.getElementById('countdown').textContent = '00:00';
+      }
+    }
+    updateCountdown();
+  </script>
+</body>
 </html>
