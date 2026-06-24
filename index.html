@@ -2228,4 +2228,317 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 })();
 </script>
+
+<!-- ══════════════════════════════════════
+     FAQ SANFONA + DISCLAIMER
+══════════════════════════════════════ -->
+<style>
+  /* ── FAQ ── */
+  .faq-section {
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    padding: 64px 0 48px;
+    font-family: 'Roboto', Arial, sans-serif;
+  }
+  .faq-section .faq-container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .faq-section .faq-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 8px;
+    letter-spacing: -.02em;
+  }
+  .faq-section .faq-subtitle {
+    font-size: 15px;
+    color: #64748b;
+    margin-bottom: 36px;
+  }
+  .faq-item {
+    background: #fff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: box-shadow .25s, border-color .25s;
+  }
+  .faq-item:hover {
+    border-color: #94a3b8;
+    box-shadow: 0 4px 16px rgba(0,0,0,.07);
+  }
+  .faq-item.open {
+    border-color: #22c55e;
+    box-shadow: 0 4px 20px rgba(34,197,94,.12);
+  }
+  .faq-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    text-align: left;
+  }
+  .faq-btn__text {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.4;
+    flex: 1;
+  }
+  .faq-btn__icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s, transform .3s;
+  }
+  .faq-btn__icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: #475569;
+    transition: transform .3s;
+  }
+  .faq-item.open .faq-btn__icon {
+    background: #dcfce7;
+    transform: rotate(0deg);
+  }
+  .faq-item.open .faq-btn__icon svg {
+    stroke: #16a34a;
+    transform: rotate(180deg);
+  }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s cubic-bezier(.4,0,.2,1);
+  }
+  .faq-answer__inner {
+    padding: 0 24px 22px;
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.7;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 16px;
+  }
+
+  /* ── DISCLAIMER ── */
+  .disclaimer-section {
+    background: #0f172a;
+    padding: 40px 0 32px;
+    font-family: 'Roboto', Arial, sans-serif;
+  }
+  .disclaimer-container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .disclaimer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(239,68,68,.15);
+    border: 1px solid rgba(239,68,68,.3);
+    border-radius: 999px;
+    padding: 6px 16px;
+    margin-bottom: 20px;
+  }
+  .disclaimer-badge__dot {
+    width: 8px;
+    height: 8px;
+    background: #ef4444;
+    border-radius: 50%;
+  }
+  .disclaimer-badge__text {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: #ef4444;
+  }
+  .disclaimer-text {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+  .disclaimer-text a {
+    color: #60a5fa;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(96,165,250,.3);
+    transition: color .2s, border-color .2s;
+  }
+  .disclaimer-text a:hover {
+    color: #93c5fd;
+    border-color: rgba(147,197,253,.5);
+  }
+  .disclaimer-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    margin-bottom: 24px;
+  }
+  .disclaimer-links a {
+    font-size: 12px;
+    color: #64748b;
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .disclaimer-links a:hover { color: #94a3b8; }
+  .disclaimer-links__sep {
+    color: #334155;
+    font-size: 12px;
+  }
+  .disclaimer-copyright {
+    font-size: 12px;
+    color: #334155;
+    padding-top: 20px;
+    border-top: 1px solid #1e293b;
+  }
+  .disclaimer-copyright span {
+    color: #22c55e;
+    font-weight: 700;
+  }
+</style>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-container">
+    <h2 class="faq-title">Gyakran Ismételt Kérdések</h2>
+    <p class="faq-subtitle">Mindent, amit a Vitality Plus Ultra megrendeléséről tudni kell</p>
+
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false">
+        <span class="faq-btn__text">Biztonságos a Vitality Plus Ultra megrendelése?</span>
+        <span class="faq-btn__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer__inner">
+          Igen. A rendelés után a fizetés csak a csomag kézbesítésekor történik, így <strong>nincs előzetes online fizetési kockázat</strong>. Az Ön adatait titkosított kapcsolaton kezeljük.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false">
+        <span class="faq-btn__text">Mennyi idő alatt érkezik meg a csomag?</span>
+        <span class="faq-btn__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer__inner">
+          A kézbesítés Magyarország területén általában <strong>2–5 munkanapot</strong> vesz igénybe, futáron vagy postai úton. Pontosabb szállítási időpontot a termékspecialistánk fog egyeztetni Önnel.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false">
+        <span class="faq-btn__text">Eredeti Vitality Plus Ultra terméket kapok?</span>
+        <span class="faq-btn__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer__inner">
+          Igen. Minden rendelés közvetlenül a <strong>hivatalos forgalmazótól</strong> érkezik, eredetiségi garanciával és sértetlen gyári csomagolásban. Nem forgalmazunk másolatokat vagy utánzatokat.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false">
+        <span class="faq-btn__text">Mi van a Vitality Plus Ultra kapszulában?</span>
+        <span class="faq-btn__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer__inner">
+          A Vitality Plus Ultra természetes összetevőket tartalmaz, köztük <strong>E-vitamint, gyömbért, hibiszkuszt és cinket</strong>. Összes összetevő klinikailag tesztelt, és az Európai Uniós előírásoknak megfelelő.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn" aria-expanded="false">
+        <span class="faq-btn__text">Hogyan adhatok visszajelzést a termékről?</span>
+        <span class="faq-btn__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer__inner">
+          A rendelés után a weboldalon található véleményküldő űrlapon oszthatja meg tapasztalatait. Minden visszajelzést nagyra értékelünk — ezek segítenek folyamatosan javítani a termékünket és szolgáltatásunkat.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<footer class="disclaimer-section">
+  <div class="disclaimer-container">
+    <div class="disclaimer-badge">
+      <div class="disclaimer-badge__dot"></div>
+      <span class="disclaimer-badge__text">Egészségügyi figyelmeztetés</span>
+    </div>
+    <p class="disclaimer-text">
+      A Vitality Plus Ultra <strong style="color:#e2e8f0;">nem minősül gyógyszernek</strong>, és nem helyettesíti az orvosi kezelést. A termék hatása egyénenként eltérő lehet. Bármilyen egészségügyi probléma esetén kérjük, forduljon kezelőorvosához.<br>
+      Az oldalon megjelenő információk kizárólag tájékoztató jellegűek, és nem minősülnek orvosi tanácsnak vagy diagnózisnak.
+    </p>
+    <div class="disclaimer-links">
+      <a href="#">Adatvédelmi Irányelvek</a>
+      <span class="disclaimer-links__sep">·</span>
+      <a href="#">Felhasználási Feltételek</a>
+      <span class="disclaimer-links__sep">·</span>
+      <a href="#">Szállítás és Nyomkövetés</a>
+      <span class="disclaimer-links__sep">·</span>
+      <a href="#">Utánvételes Fizetési Feltételek</a>
+    </div>
+    <div class="disclaimer-copyright">
+      © 2026 <span>Vitality Plus Ultra HU</span>. Minden jog fenntartva. &nbsp;·&nbsp; *Gyógyszernek nem minősülő termék.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.faq-item');
+      var answer = item.querySelector('.faq-answer');
+      var isOpen = item.classList.contains('open');
+
+      // close all
+      document.querySelectorAll('.faq-item').forEach(function(i) {
+        i.classList.remove('open');
+        i.querySelector('.faq-answer').style.maxHeight = '0';
+        i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+      });
+
+      // open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
 </body></html>
