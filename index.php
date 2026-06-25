@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.min.css">
-	  <meta name="google-site-verification" content="OZ9y92gjrVGx7BCZrwjEiJqnUBSMea5Pd7iJuMbMOGk" />
     <script>
       !(function (e, n, A) {
         function o(e, n) {
@@ -268,20 +267,7 @@
   ]
 }
     </script>
-  <script defer
-  data-tag="CDvG5wWxgJXWYkpyeZ4jOa"
-  src="https://cdn.cckdl.com/js/base.min.js">
-</script>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17838578264"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17838578264');
-</script>	  
+  
   </head>
   <body class="ev-date">
     <div class="block1 block">
@@ -1672,10 +1658,10 @@ Enyhe vízhajtó hatásának köszönhetően elősegíti a felesleges folyadék 
           <p>Az oldalon megjelenő információk kizárólag tájékoztató jellegűek, és nem minősülnek orvosi tanácsnak vagy diagnózisnak.</p>
         </div>
         <nav class="footer__links" aria-label="Jogi információk">
-          <a href="/adatvedelmi-iranyelvek.html">Adatvédelmi Irányelvek</a>
-          <a href="/felhasznalasi-feltetelek.html">Felhasználási Feltételek</a>
-          <a href="/szallitas-es-nyomkoveles.html">Szállítás és Nyomkövetés</a>
-          <a href="/utanveteles-fizetesi-feltetelek.html">Utánvételes Fizetési Feltételek</a>
+          <a href="#">Adatvédelmi Irányelvek</a>
+          <a href="#">Felhasználási Feltételek</a>
+          <a href="#">Szállítás és Nyomkövetés</a>
+          <a href="#">Utánvételes Fizetési Feltételek</a>
         </nav>
         <p class="footer__copy">&copy; 2026 <em>Vitality Plus Ultra HU</em>. Minden jog fenntartva.&nbsp;&nbsp;·&nbsp;&nbsp;*Gyógyszernek nem minősülő termék.</p>
       </div>
@@ -2007,66 +1993,66 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-<script>
-(function () {
-    // SEGURANÇA: o token Bearer e a chamada direta à DrCash foram REMOVIDOS do client-side.
-    // O envio agora vai para /api/order (função serverless), que guarda o token
-    // como variável de ambiente no servidor (ex.: Vercel) e repassa o pedido para a DrCash.
-    var API_URL = '/api/order';
-    var STREAM_CODE = '8e3z4';
-    function getParam(name) {
-        var params = new URLSearchParams(window.location.search);
-        return params.get(name) || null;
+      <?php
+if (!function_exists('curl_version')) {
+    echo '<!-- Curl is not installed -->';
+}
+
+if ($_SERVER["REQUEST_METHOD"]=="POST") {
+    // Required params
+    $token = 'YZA0ZJDLZWYTZDK4ZC00YMJJLWJJNJATODZKNGJJMTE2MZQ4';
+    $stream_code = '8e3z4';
+
+    // Fields to send
+    $post_fields = [
+        'stream_code'   => $stream_code,    // required
+        'client'        => [
+            'phone'     => $_POST['phone'], // required
+            'name'      => $_POST['name'],
+            'surname'   => (empty($_POST['surname'])) ? null : $_POST['surname'],
+            'email'     => (empty($_POST['email'])) ? null : $_POST['email'],
+            'address'   => (empty($_POST['address'])) ? null : $_POST['address'],
+            'ip'        => (empty($_POST['ip'])) ? null : $_POST['ip'],
+            'country'   => (empty($_POST['country'])) ? null : $_POST['country'],
+            'city'      => (empty($_POST['city'])) ? null : $_POST['city'],
+            'postcode'  => (empty($_POST['postcode'])) ? null : $_POST['postcode'],
+        ],
+        'sub1'      => (empty($_POST['sub1'])) ? $_GET['sub1'] : $_POST['sub1'],
+        'sub2'      => (empty($_POST['sub2'])) ? $_GET['sub2'] : $_POST['sub2'],
+        'sub3'      => (empty($_POST['sub3'])) ? $_GET['sub3'] : $_POST['sub3'],
+        'sub4'      => (empty($_POST['sub4'])) ? $_GET['sub4'] : $_POST['sub4'],
+        'sub5'      => (empty($_POST['sub5'])) ? $_GET['sub5'] : $_POST['sub5'],
+    ];
+
+    $headers = [
+        'Content-Type: application/json',
+        'Authorization: Bearer ' . $token
+    ];
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL,"https://order.drcash.sh/v1/order");
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_fields));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_HEADER, true);
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    $response = curl_exec($ch);
+    $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+    $body = substr($response, $header_size);
+
+    curl_close ($ch);
+
+    if ($httpcode != 200) {
+        echo '<!-- Error: ' . $httpcode . ' ' . htmlspecialchars($response) . ' -->';
     }
-    function handleOrderForm(form) {
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var data = new FormData(form);
-            var phone = data.get('phone') || '';
-            var name  = data.get('name')  || '';
-            var payload = {
-                stream_code: STREAM_CODE,
-                client: {
-                    phone:    phone,
-                    name:     name,
-                    surname:  data.get('surname')  || null,
-                    email:    data.get('email')    || null,
-                    address:  data.get('address')  || null,
-                    ip:       data.get('ip')        || null,
-                    country:  data.get('country')  || null,
-                    city:     data.get('city')      || null,
-                    postcode: data.get('postcode')  || null
-                },
-                sub1: data.get('sub1') || getParam('sub1'),
-                sub2: data.get('sub2') || getParam('sub2'),
-                sub3: data.get('sub3') || getParam('sub3'),
-                sub4: data.get('sub4') || getParam('sub4'),
-                sub5: data.get('sub5') || getParam('sub5')
-            };
-            var btn = form.querySelector('[type="submit"]');
-            if (btn) btn.disabled = true;
-            fetch(API_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            })
-            .then(function (res) {
-                if (res.ok) {
-                    window.location.href = './thanks';
-                } else {
-                    alert('Hiba történt. Kérjük, próbálja újra.');
-                    if (btn) btn.disabled = false;
-                }
-            })
-            .catch(function () {
-                alert('Hálózati hiba. Kérjük, próbálja újra.');
-                if (btn) btn.disabled = false;
-            });
-        });
+    if ($httpcode == 200) {
+        echo '<script language="javascript" type="text/javascript">
+            window.location.href = "./thanks";
+        </script>';
     }
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('form.orderForm').forEach(handleOrderForm);
-    });
-})();
-</script>
+}
+?>
 </body></html>
